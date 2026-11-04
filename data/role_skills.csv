@@ -1,0 +1,1426 @@
+role_name,skill_name,importance
+SOC Analyst,SIEM,core
+SOC Analyst,Log Analysis,core
+SOC Analyst,Security Monitoring,core
+SOC Analyst,Alert Triage,core
+SOC Analyst,Incident Response,core
+SOC Analyst,Threat Detection,core
+SOC Analyst,Networking,core
+SOC Analyst,MITRE ATT&CK,preferred
+SOC Analyst,Threat Intelligence,preferred
+SOC Analyst,EDR,preferred
+SOC Analyst,Windows Event Logs,preferred
+SOC Analyst,Linux,preferred
+SOC Analyst,Phishing Analysis,preferred
+SOC Analyst,Ticketing Systems,preferred
+SOC Analyst,Python,additional
+SOC Analyst,Splunk,additional
+SOC Analyst,Report Writing,additional
+SOC Analyst,Malware Analysis,additional
+Junior SOC Analyst,SIEM,core
+Junior SOC Analyst,Log Analysis,core
+Junior SOC Analyst,Security Monitoring,core
+Junior SOC Analyst,Alert Triage,core
+Junior SOC Analyst,Incident Response,core
+Junior SOC Analyst,Threat Detection,core
+Junior SOC Analyst,Networking,core
+Junior SOC Analyst,Windows Event Logs,core
+Junior SOC Analyst,Cybersecurity Fundamentals,core
+Junior SOC Analyst,MITRE ATT&CK,preferred
+Junior SOC Analyst,EDR,preferred
+Junior SOC Analyst,Linux,preferred
+Junior SOC Analyst,Phishing Analysis,preferred
+Junior SOC Analyst,Ticketing Systems,preferred
+Junior SOC Analyst,Threat Intelligence,additional
+Junior SOC Analyst,Python,additional
+Junior SOC Analyst,Splunk,additional
+Junior SOC Analyst,Report Writing,additional
+Senior SOC Analyst,SIEM,core
+Senior SOC Analyst,Log Analysis,core
+Senior SOC Analyst,Security Monitoring,core
+Senior SOC Analyst,Alert Triage,core
+Senior SOC Analyst,Incident Response,core
+Senior SOC Analyst,Threat Detection,core
+Senior SOC Analyst,Networking,core
+Senior SOC Analyst,MITRE ATT&CK,core
+Senior SOC Analyst,Threat Intelligence,core
+Senior SOC Analyst,EDR,preferred
+Senior SOC Analyst,Windows Event Logs,preferred
+Senior SOC Analyst,Linux,preferred
+Senior SOC Analyst,Phishing Analysis,preferred
+Senior SOC Analyst,Malware Analysis,preferred
+Senior SOC Analyst,Threat Hunting,preferred
+Senior SOC Analyst,Playbook Development,preferred
+Senior SOC Analyst,Mentoring,preferred
+Senior SOC Analyst,Python,additional
+Senior SOC Analyst,Report Writing,additional
+SOC Team Lead,SOC Operations,core
+SOC Team Lead,Incident Response,core
+SOC Team Lead,SIEM,core
+SOC Team Lead,Security Monitoring,core
+SOC Team Lead,Team Management,core
+SOC Team Lead,Escalation Management,core
+SOC Team Lead,Threat Detection,core
+SOC Team Lead,Mentoring,core
+SOC Team Lead,MITRE ATT&CK,preferred
+SOC Team Lead,Threat Intelligence,preferred
+SOC Team Lead,Playbook Development,preferred
+SOC Team Lead,Metrics and Reporting,preferred
+SOC Team Lead,SOAR,preferred
+SOC Team Lead,Stakeholder Communication,preferred
+SOC Team Lead,Shift Management,preferred
+SOC Team Lead,Python,additional
+SOC Team Lead,Compliance,additional
+SOC Team Lead,Vendor Management,additional
+SOC Manager,SOC Operations,core
+SOC Manager,Incident Response,core
+SOC Manager,SIEM,core
+SOC Manager,Security Monitoring,core
+SOC Manager,Team Management,core
+SOC Manager,Escalation Management,core
+SOC Manager,Threat Detection,core
+SOC Manager,MITRE ATT&CK,preferred
+SOC Manager,Threat Intelligence,preferred
+SOC Manager,Playbook Development,preferred
+SOC Manager,Metrics and Reporting,preferred
+SOC Manager,SOAR,preferred
+SOC Manager,Stakeholder Communication,preferred
+SOC Manager,Mentoring,preferred
+SOC Manager,Vendor Management,preferred
+SOC Manager,Budget Management,preferred
+SOC Manager,Risk Management,preferred
+SOC Manager,Python,additional
+SOC Manager,Compliance,additional
+SOC Manager,Shift Management,additional
+SOC Engineer,SIEM,core
+SOC Engineer,Log Source Integration,core
+SOC Engineer,Log Analysis,core
+SOC Engineer,Detection Rule Development,core
+SOC Engineer,Security Monitoring,core
+SOC Engineer,Networking,core
+SOC Engineer,Scripting,core
+SOC Engineer,Splunk,preferred
+SOC Engineer,SOAR,preferred
+SOC Engineer,Log Parsing,preferred
+SOC Engineer,Linux,preferred
+SOC Engineer,Windows Event Logs,preferred
+SOC Engineer,MITRE ATT&CK,preferred
+SOC Engineer,EDR,preferred
+SOC Engineer,API Integration,preferred
+SOC Engineer,Python,preferred
+SOC Engineer,Elastic Stack,additional
+SOC Engineer,Cloud Logging,additional
+SOC Engineer,Documentation,additional
+SOC Engineer,Incident Response,additional
+SIEM Engineer,SIEM,core
+SIEM Engineer,Log Source Integration,core
+SIEM Engineer,Log Analysis,core
+SIEM Engineer,Detection Rule Development,core
+SIEM Engineer,Security Monitoring,core
+SIEM Engineer,Networking,core
+SIEM Engineer,Scripting,core
+SIEM Engineer,Splunk,preferred
+SIEM Engineer,SOAR,preferred
+SIEM Engineer,Log Parsing,preferred
+SIEM Engineer,Linux,preferred
+SIEM Engineer,Windows Event Logs,preferred
+SIEM Engineer,MITRE ATT&CK,preferred
+SIEM Engineer,EDR,preferred
+SIEM Engineer,API Integration,preferred
+SIEM Engineer,Python,preferred
+SIEM Engineer,SIEM Administration,preferred
+SIEM Engineer,Elastic Stack,additional
+SIEM Engineer,Cloud Logging,additional
+SIEM Engineer,Documentation,additional
+SIEM Administrator,SIEM,core
+SIEM Administrator,Log Source Integration,core
+SIEM Administrator,Log Analysis,core
+SIEM Administrator,Security Monitoring,core
+SIEM Administrator,Networking,core
+SIEM Administrator,Scripting,core
+SIEM Administrator,SIEM Administration,core
+SIEM Administrator,Platform Maintenance,core
+SIEM Administrator,Detection Rule Development,preferred
+SIEM Administrator,Splunk,preferred
+SIEM Administrator,Log Parsing,preferred
+SIEM Administrator,Linux,preferred
+SIEM Administrator,Windows Event Logs,preferred
+SIEM Administrator,SOAR,additional
+SIEM Administrator,MITRE ATT&CK,additional
+SIEM Administrator,EDR,additional
+SIEM Administrator,Python,additional
+SIEM Administrator,Elastic Stack,additional
+SIEM Administrator,Cloud Logging,additional
+SIEM Administrator,Documentation,additional
+Security Monitoring Executive,SIEM,core
+Security Monitoring Executive,Log Analysis,core
+Security Monitoring Executive,Security Monitoring,core
+Security Monitoring Executive,Alert Triage,core
+Security Monitoring Executive,Incident Response,core
+Security Monitoring Executive,Threat Detection,core
+Security Monitoring Executive,Networking,core
+Security Monitoring Executive,Ticketing Systems,core
+Security Monitoring Executive,Cybersecurity Fundamentals,core
+Security Monitoring Executive,MITRE ATT&CK,preferred
+Security Monitoring Executive,Threat Intelligence,preferred
+Security Monitoring Executive,EDR,preferred
+Security Monitoring Executive,Windows Event Logs,preferred
+Security Monitoring Executive,Linux,preferred
+Security Monitoring Executive,Phishing Analysis,preferred
+Security Monitoring Executive,Report Writing,additional
+Cybersecurity Analyst,Security Monitoring,core
+Cybersecurity Analyst,Incident Response,core
+Cybersecurity Analyst,Vulnerability Assessment,core
+Cybersecurity Analyst,Log Analysis,core
+Cybersecurity Analyst,Networking,core
+Cybersecurity Analyst,Threat Detection,core
+Cybersecurity Analyst,Cybersecurity Fundamentals,core
+Cybersecurity Analyst,SIEM,preferred
+Cybersecurity Analyst,Linux,preferred
+Cybersecurity Analyst,Windows,preferred
+Cybersecurity Analyst,Firewalls,preferred
+Cybersecurity Analyst,Endpoint Security,preferred
+Cybersecurity Analyst,Phishing Analysis,preferred
+Cybersecurity Analyst,Risk Assessment,preferred
+Cybersecurity Analyst,Report Writing,preferred
+Cybersecurity Analyst,Python,additional
+Cybersecurity Analyst,Threat Intelligence,additional
+Cybersecurity Analyst,MITRE ATT&CK,additional
+Cybersecurity Analyst,ISO 27001,additional
+Cybersecurity Analyst,Ticketing Systems,additional
+Junior Cybersecurity Analyst,Security Monitoring,core
+Junior Cybersecurity Analyst,Incident Response,core
+Junior Cybersecurity Analyst,Vulnerability Assessment,core
+Junior Cybersecurity Analyst,Log Analysis,core
+Junior Cybersecurity Analyst,Networking,core
+Junior Cybersecurity Analyst,Threat Detection,core
+Junior Cybersecurity Analyst,Cybersecurity Fundamentals,core
+Junior Cybersecurity Analyst,SIEM,preferred
+Junior Cybersecurity Analyst,Linux,preferred
+Junior Cybersecurity Analyst,Windows,preferred
+Junior Cybersecurity Analyst,Firewalls,preferred
+Junior Cybersecurity Analyst,Endpoint Security,preferred
+Junior Cybersecurity Analyst,Phishing Analysis,preferred
+Junior Cybersecurity Analyst,Risk Assessment,preferred
+Junior Cybersecurity Analyst,Report Writing,preferred
+Junior Cybersecurity Analyst,Python,additional
+Junior Cybersecurity Analyst,Ticketing Systems,additional
+Information Security Analyst,Security Monitoring,core
+Information Security Analyst,Incident Response,core
+Information Security Analyst,Vulnerability Assessment,core
+Information Security Analyst,Log Analysis,core
+Information Security Analyst,Networking,core
+Information Security Analyst,Threat Detection,core
+Information Security Analyst,Cybersecurity Fundamentals,core
+Information Security Analyst,Risk Assessment,core
+Information Security Analyst,SIEM,preferred
+Information Security Analyst,Linux,preferred
+Information Security Analyst,Windows,preferred
+Information Security Analyst,Firewalls,preferred
+Information Security Analyst,Endpoint Security,preferred
+Information Security Analyst,Phishing Analysis,preferred
+Information Security Analyst,Report Writing,preferred
+Information Security Analyst,ISO 27001,preferred
+Information Security Analyst,Policy Development,preferred
+Information Security Analyst,Threat Intelligence,additional
+Information Security Analyst,Ticketing Systems,additional
+Information Security Analyst,Security Awareness,additional
+Security Analyst,Security Monitoring,core
+Security Analyst,Incident Response,core
+Security Analyst,Vulnerability Assessment,core
+Security Analyst,Log Analysis,core
+Security Analyst,Networking,core
+Security Analyst,Threat Detection,core
+Security Analyst,Cybersecurity Fundamentals,core
+Security Analyst,SIEM,preferred
+Security Analyst,Linux,preferred
+Security Analyst,Windows,preferred
+Security Analyst,Firewalls,preferred
+Security Analyst,Endpoint Security,preferred
+Security Analyst,Phishing Analysis,preferred
+Security Analyst,Risk Assessment,preferred
+Security Analyst,Report Writing,preferred
+Security Analyst,Python,additional
+Security Analyst,Threat Intelligence,additional
+Security Analyst,MITRE ATT&CK,additional
+Security Analyst,ISO 27001,additional
+Security Analyst,Ticketing Systems,additional
+Security Operations Analyst,Security Monitoring,core
+Security Operations Analyst,Incident Response,core
+Security Operations Analyst,Vulnerability Assessment,core
+Security Operations Analyst,Log Analysis,core
+Security Operations Analyst,Networking,core
+Security Operations Analyst,Threat Detection,core
+Security Operations Analyst,Cybersecurity Fundamentals,core
+Security Operations Analyst,SIEM,core
+Security Operations Analyst,Alert Triage,core
+Security Operations Analyst,Linux,preferred
+Security Operations Analyst,Windows,preferred
+Security Operations Analyst,Firewalls,preferred
+Security Operations Analyst,Endpoint Security,preferred
+Security Operations Analyst,Phishing Analysis,preferred
+Security Operations Analyst,Report Writing,preferred
+Security Operations Analyst,Python,additional
+Security Operations Analyst,Threat Intelligence,additional
+Security Operations Analyst,MITRE ATT&CK,additional
+Security Operations Analyst,Ticketing Systems,additional
+IT Security Analyst,Security Monitoring,core
+IT Security Analyst,Incident Response,core
+IT Security Analyst,Vulnerability Assessment,core
+IT Security Analyst,Log Analysis,core
+IT Security Analyst,Networking,core
+IT Security Analyst,Threat Detection,core
+IT Security Analyst,Cybersecurity Fundamentals,core
+IT Security Analyst,Firewalls,core
+IT Security Analyst,Endpoint Security,core
+IT Security Analyst,SIEM,preferred
+IT Security Analyst,Linux,preferred
+IT Security Analyst,Windows,preferred
+IT Security Analyst,Phishing Analysis,preferred
+IT Security Analyst,Risk Assessment,preferred
+IT Security Analyst,Report Writing,preferred
+IT Security Analyst,Patch Management,preferred
+IT Security Analyst,Active Directory,preferred
+IT Security Analyst,ISO 27001,additional
+IT Security Analyst,Ticketing Systems,additional
+Cyber Security Associate,Security Monitoring,core
+Cyber Security Associate,Incident Response,core
+Cyber Security Associate,Vulnerability Assessment,core
+Cyber Security Associate,Log Analysis,core
+Cyber Security Associate,Networking,core
+Cyber Security Associate,Threat Detection,core
+Cyber Security Associate,Cybersecurity Fundamentals,core
+Cyber Security Associate,SIEM,preferred
+Cyber Security Associate,Linux,preferred
+Cyber Security Associate,Windows,preferred
+Cyber Security Associate,Firewalls,preferred
+Cyber Security Associate,Endpoint Security,preferred
+Cyber Security Associate,Phishing Analysis,preferred
+Cyber Security Associate,Risk Assessment,preferred
+Cyber Security Associate,Report Writing,preferred
+Cyber Security Associate,Threat Intelligence,additional
+Cyber Security Associate,Ticketing Systems,additional
+Cybersecurity Trainee,Security Monitoring,core
+Cybersecurity Trainee,Incident Response,core
+Cybersecurity Trainee,Vulnerability Assessment,core
+Cybersecurity Trainee,Log Analysis,core
+Cybersecurity Trainee,Networking,core
+Cybersecurity Trainee,Threat Detection,core
+Cybersecurity Trainee,Cybersecurity Fundamentals,core
+Cybersecurity Trainee,Linux,core
+Cybersecurity Trainee,Windows,core
+Cybersecurity Trainee,SIEM,preferred
+Cybersecurity Trainee,Firewalls,preferred
+Cybersecurity Trainee,Endpoint Security,preferred
+Cybersecurity Trainee,Phishing Analysis,preferred
+Cybersecurity Trainee,Report Writing,preferred
+Cybersecurity Trainee,Python,additional
+Security Analyst Trainee,Security Monitoring,core
+Security Analyst Trainee,Incident Response,core
+Security Analyst Trainee,Vulnerability Assessment,core
+Security Analyst Trainee,Log Analysis,core
+Security Analyst Trainee,Networking,core
+Security Analyst Trainee,Threat Detection,core
+Security Analyst Trainee,Cybersecurity Fundamentals,core
+Security Analyst Trainee,SIEM,core
+Security Analyst Trainee,Linux,core
+Security Analyst Trainee,Windows,preferred
+Security Analyst Trainee,Firewalls,preferred
+Security Analyst Trainee,Endpoint Security,preferred
+Security Analyst Trainee,Phishing Analysis,preferred
+Security Analyst Trainee,Report Writing,preferred
+Security Analyst Trainee,Python,additional
+Security Analyst Trainee,Ticketing Systems,additional
+Cybersecurity Intern,Security Monitoring,core
+Cybersecurity Intern,Vulnerability Assessment,core
+Cybersecurity Intern,Networking,core
+Cybersecurity Intern,Cybersecurity Fundamentals,core
+Cybersecurity Intern,Linux,core
+Cybersecurity Intern,Incident Response,preferred
+Cybersecurity Intern,Log Analysis,preferred
+Cybersecurity Intern,Threat Detection,preferred
+Cybersecurity Intern,SIEM,preferred
+Cybersecurity Intern,Windows,preferred
+Cybersecurity Intern,Firewalls,preferred
+Cybersecurity Intern,Endpoint Security,preferred
+Cybersecurity Intern,Report Writing,additional
+Cybersecurity Intern,Python,additional
+Cybersecurity Engineer,Firewalls,core
+Cybersecurity Engineer,Network Security,core
+Cybersecurity Engineer,Vulnerability Management,core
+Cybersecurity Engineer,Security Tool Deployment,core
+Cybersecurity Engineer,Endpoint Security,core
+Cybersecurity Engineer,System Hardening,core
+Cybersecurity Engineer,Incident Response,core
+Cybersecurity Engineer,SIEM,preferred
+Cybersecurity Engineer,Linux,preferred
+Cybersecurity Engineer,Windows,preferred
+Cybersecurity Engineer,IAM,preferred
+Cybersecurity Engineer,Cloud Security,preferred
+Cybersecurity Engineer,Encryption,preferred
+Cybersecurity Engineer,Scripting,preferred
+Cybersecurity Engineer,Patch Management,preferred
+Cybersecurity Engineer,Python,additional
+Cybersecurity Engineer,Compliance,additional
+Cybersecurity Engineer,Vulnerability Assessment,additional
+Cybersecurity Engineer,Documentation,additional
+Cybersecurity Engineer,Security Automation,additional
+Information Security Engineer,Firewalls,core
+Information Security Engineer,Network Security,core
+Information Security Engineer,Vulnerability Management,core
+Information Security Engineer,Endpoint Security,core
+Information Security Engineer,System Hardening,core
+Information Security Engineer,Incident Response,core
+Information Security Engineer,SIEM,preferred
+Information Security Engineer,Linux,preferred
+Information Security Engineer,Windows,preferred
+Information Security Engineer,IAM,preferred
+Information Security Engineer,Cloud Security,preferred
+Information Security Engineer,Encryption,preferred
+Information Security Engineer,Scripting,preferred
+Information Security Engineer,Patch Management,preferred
+Information Security Engineer,Policy Development,preferred
+Information Security Engineer,ISO 27001,preferred
+Information Security Engineer,Compliance,additional
+Information Security Engineer,Vulnerability Assessment,additional
+Information Security Engineer,Documentation,additional
+Information Security Engineer,Security Automation,additional
+Security Engineer,Firewalls,core
+Security Engineer,Network Security,core
+Security Engineer,Vulnerability Management,core
+Security Engineer,Security Tool Deployment,core
+Security Engineer,Endpoint Security,core
+Security Engineer,System Hardening,core
+Security Engineer,Incident Response,core
+Security Engineer,SIEM,preferred
+Security Engineer,Linux,preferred
+Security Engineer,Windows,preferred
+Security Engineer,IAM,preferred
+Security Engineer,Cloud Security,preferred
+Security Engineer,Encryption,preferred
+Security Engineer,Scripting,preferred
+Security Engineer,Patch Management,preferred
+Security Engineer,Python,additional
+Security Engineer,Compliance,additional
+Security Engineer,Vulnerability Assessment,additional
+Security Engineer,Documentation,additional
+Security Engineer,Security Automation,additional
+Cybersecurity Specialist,Firewalls,core
+Cybersecurity Specialist,Network Security,core
+Cybersecurity Specialist,Vulnerability Management,core
+Cybersecurity Specialist,Security Tool Deployment,core
+Cybersecurity Specialist,Endpoint Security,core
+Cybersecurity Specialist,System Hardening,core
+Cybersecurity Specialist,Incident Response,core
+Cybersecurity Specialist,SIEM,preferred
+Cybersecurity Specialist,Linux,preferred
+Cybersecurity Specialist,Windows,preferred
+Cybersecurity Specialist,IAM,preferred
+Cybersecurity Specialist,Cloud Security,preferred
+Cybersecurity Specialist,Encryption,preferred
+Cybersecurity Specialist,Scripting,preferred
+Cybersecurity Specialist,Patch Management,preferred
+Cybersecurity Specialist,Threat Detection,preferred
+Cybersecurity Specialist,Risk Assessment,preferred
+Cybersecurity Specialist,Python,additional
+Cybersecurity Specialist,Compliance,additional
+Cybersecurity Specialist,Vulnerability Assessment,additional
+Cybersecurity Consultant,Risk Assessment,core
+Cybersecurity Consultant,Security Assessment,core
+Cybersecurity Consultant,NIST CSF,core
+Cybersecurity Consultant,ISO 27001,core
+Cybersecurity Consultant,Report Writing,core
+Cybersecurity Consultant,Client Communication,core
+Cybersecurity Consultant,Vulnerability Assessment,core
+Cybersecurity Consultant,Security Architecture Review,preferred
+Cybersecurity Consultant,Compliance,preferred
+Cybersecurity Consultant,Network Security,preferred
+Cybersecurity Consultant,Cloud Security,preferred
+Cybersecurity Consultant,Incident Response,preferred
+Cybersecurity Consultant,Policy Development,preferred
+Cybersecurity Consultant,Presentation Skills,preferred
+Cybersecurity Consultant,Gap Analysis,preferred
+Cybersecurity Consultant,Penetration Testing,additional
+Cybersecurity Consultant,PCI DSS,additional
+Cybersecurity Consultant,SOC 2,additional
+Cybersecurity Consultant,Project Management,additional
+Security Consultant,Risk Assessment,core
+Security Consultant,Security Assessment,core
+Security Consultant,NIST CSF,core
+Security Consultant,ISO 27001,core
+Security Consultant,Report Writing,core
+Security Consultant,Client Communication,core
+Security Consultant,Vulnerability Assessment,core
+Security Consultant,Network Security,core
+Security Consultant,Security Architecture Review,preferred
+Security Consultant,Compliance,preferred
+Security Consultant,Cloud Security,preferred
+Security Consultant,Incident Response,preferred
+Security Consultant,Policy Development,preferred
+Security Consultant,Presentation Skills,preferred
+Security Consultant,Gap Analysis,preferred
+Security Consultant,Penetration Testing,preferred
+Security Consultant,PCI DSS,additional
+Security Consultant,SOC 2,additional
+Cyber Defense Analyst,Threat Detection,core
+Cyber Defense Analyst,Incident Response,core
+Cyber Defense Analyst,Security Monitoring,core
+Cyber Defense Analyst,Log Analysis,core
+Cyber Defense Analyst,Network Security,core
+Cyber Defense Analyst,Vulnerability Assessment,core
+Cyber Defense Analyst,IDS/IPS,core
+Cyber Defense Analyst,SIEM,preferred
+Cyber Defense Analyst,MITRE ATT&CK,preferred
+Cyber Defense Analyst,Threat Intelligence,preferred
+Cyber Defense Analyst,Firewalls,preferred
+Cyber Defense Analyst,Linux,preferred
+Cyber Defense Analyst,Windows,preferred
+Cyber Defense Analyst,Endpoint Security,preferred
+Cyber Defense Analyst,Malware Analysis,preferred
+Cyber Defense Analyst,Python,additional
+Cyber Defense Analyst,Penetration Testing,additional
+Cyber Defense Analyst,Report Writing,additional
+Cyber Defense Analyst,Digital Forensics,additional
+Penetration Tester,Penetration Testing,core
+Penetration Tester,Web Application Security,core
+Penetration Tester,OWASP Top 10,core
+Penetration Tester,Burp Suite,core
+Penetration Tester,Nmap,core
+Penetration Tester,Vulnerability Assessment,core
+Penetration Tester,Linux,core
+Penetration Tester,Network Security Testing,core
+Penetration Tester,Report Writing,core
+Penetration Tester,Metasploit,preferred
+Penetration Tester,Active Directory Security,preferred
+Penetration Tester,Python,preferred
+Penetration Tester,Kali Linux,preferred
+Penetration Tester,Wireshark,preferred
+Penetration Tester,API Security,preferred
+Penetration Tester,Privilege Escalation,preferred
+Penetration Tester,Wireless Security,additional
+Penetration Tester,Mobile Application Security,additional
+Penetration Tester,Cloud Security,additional
+Penetration Tester,Social Engineering,additional
+Junior Penetration Tester,Penetration Testing,core
+Junior Penetration Tester,Web Application Security,core
+Junior Penetration Tester,OWASP Top 10,core
+Junior Penetration Tester,Burp Suite,core
+Junior Penetration Tester,Nmap,core
+Junior Penetration Tester,Vulnerability Assessment,core
+Junior Penetration Tester,Linux,core
+Junior Penetration Tester,Network Security Testing,core
+Junior Penetration Tester,Report Writing,core
+Junior Penetration Tester,Cybersecurity Fundamentals,core
+Junior Penetration Tester,Metasploit,preferred
+Junior Penetration Tester,Active Directory Security,preferred
+Junior Penetration Tester,Python,preferred
+Junior Penetration Tester,Kali Linux,preferred
+Junior Penetration Tester,Wireshark,preferred
+Junior Penetration Tester,API Security,preferred
+Junior Penetration Tester,Privilege Escalation,additional
+Junior Penetration Tester,Social Engineering,additional
+Senior Penetration Tester,Penetration Testing,core
+Senior Penetration Tester,Web Application Security,core
+Senior Penetration Tester,OWASP Top 10,core
+Senior Penetration Tester,Burp Suite,core
+Senior Penetration Tester,Nmap,core
+Senior Penetration Tester,Vulnerability Assessment,core
+Senior Penetration Tester,Linux,core
+Senior Penetration Tester,Network Security Testing,core
+Senior Penetration Tester,Report Writing,core
+Senior Penetration Tester,Active Directory Security,core
+Senior Penetration Tester,Metasploit,preferred
+Senior Penetration Tester,Python,preferred
+Senior Penetration Tester,API Security,preferred
+Senior Penetration Tester,Privilege Escalation,preferred
+Senior Penetration Tester,Cloud Security,preferred
+Senior Penetration Tester,Red Teaming,preferred
+Senior Penetration Tester,Mentoring,preferred
+Senior Penetration Tester,Client Communication,preferred
+Senior Penetration Tester,Mobile Application Security,additional
+Senior Penetration Tester,Exploit Development,additional
+Ethical Hacker,Penetration Testing,core
+Ethical Hacker,Web Application Security,core
+Ethical Hacker,OWASP Top 10,core
+Ethical Hacker,Burp Suite,core
+Ethical Hacker,Nmap,core
+Ethical Hacker,Vulnerability Assessment,core
+Ethical Hacker,Linux,core
+Ethical Hacker,Network Security Testing,core
+Ethical Hacker,Report Writing,core
+Ethical Hacker,Metasploit,preferred
+Ethical Hacker,Active Directory Security,preferred
+Ethical Hacker,Python,preferred
+Ethical Hacker,Kali Linux,preferred
+Ethical Hacker,Wireshark,preferred
+Ethical Hacker,API Security,preferred
+Ethical Hacker,Privilege Escalation,preferred
+Ethical Hacker,Social Engineering,preferred
+Ethical Hacker,Reconnaissance,preferred
+Ethical Hacker,Wireless Security,additional
+Ethical Hacker,Exploit Development,additional
+VAPT Analyst,Penetration Testing,core
+VAPT Analyst,Web Application Security,core
+VAPT Analyst,OWASP Top 10,core
+VAPT Analyst,Burp Suite,core
+VAPT Analyst,Nmap,core
+VAPT Analyst,Vulnerability Assessment,core
+VAPT Analyst,Linux,core
+VAPT Analyst,Network Security Testing,core
+VAPT Analyst,Report Writing,core
+VAPT Analyst,Metasploit,preferred
+VAPT Analyst,Active Directory Security,preferred
+VAPT Analyst,Python,preferred
+VAPT Analyst,Kali Linux,preferred
+VAPT Analyst,Wireshark,preferred
+VAPT Analyst,API Security,preferred
+VAPT Analyst,Nessus,preferred
+VAPT Analyst,Mobile Application Security,additional
+VAPT Analyst,Cloud Security,additional
+VAPT Analyst,Vulnerability Management,additional
+Red Team Operator,Red Teaming,core
+Red Team Operator,Penetration Testing,core
+Red Team Operator,Active Directory Security,core
+Red Team Operator,Privilege Escalation,core
+Red Team Operator,Lateral Movement,core
+Red Team Operator,C2 Frameworks,core
+Red Team Operator,MITRE ATT&CK,core
+Red Team Operator,Social Engineering,core
+Red Team Operator,Defense Evasion,preferred
+Red Team Operator,Python,preferred
+Red Team Operator,PowerShell,preferred
+Red Team Operator,Linux,preferred
+Red Team Operator,Windows Internals,preferred
+Red Team Operator,Network Security Testing,preferred
+Red Team Operator,Report Writing,preferred
+Red Team Operator,Malware Development,additional
+Red Team Operator,Physical Security Testing,additional
+Red Team Operator,Cloud Security,additional
+Red Team Operator,Threat Intelligence,additional
+Bug Bounty Researcher,Web Application Security,core
+Bug Bounty Researcher,OWASP Top 10,core
+Bug Bounty Researcher,Burp Suite,core
+Bug Bounty Researcher,Vulnerability Assessment,core
+Bug Bounty Researcher,Reconnaissance,core
+Bug Bounty Researcher,Report Writing,core
+Bug Bounty Researcher,API Security,core
+Bug Bounty Researcher,Penetration Testing,preferred
+Bug Bounty Researcher,JavaScript,preferred
+Bug Bounty Researcher,Linux,preferred
+Bug Bounty Researcher,Python,preferred
+Bug Bounty Researcher,Authentication Testing,preferred
+Bug Bounty Researcher,Bash Scripting,preferred
+Bug Bounty Researcher,Networking,preferred
+Bug Bounty Researcher,Responsible Disclosure,preferred
+Bug Bounty Researcher,Mobile Application Security,additional
+Bug Bounty Researcher,Cloud Security,additional
+Bug Bounty Researcher,Secure Code Review,additional
+Bug Bounty Researcher,Exploit Development,additional
+Security Researcher,Web Application Security,core
+Security Researcher,OWASP Top 10,core
+Security Researcher,Burp Suite,core
+Security Researcher,Vulnerability Assessment,core
+Security Researcher,API Security,core
+Security Researcher,Reconnaissance,preferred
+Security Researcher,Report Writing,preferred
+Security Researcher,Penetration Testing,preferred
+Security Researcher,JavaScript,preferred
+Security Researcher,Linux,preferred
+Security Researcher,Python,preferred
+Security Researcher,Networking,preferred
+Security Researcher,Responsible Disclosure,preferred
+Security Researcher,Exploit Development,preferred
+Security Researcher,Reverse Engineering,preferred
+Security Researcher,Fuzzing,preferred
+Security Researcher,Mobile Application Security,additional
+Security Researcher,Cloud Security,additional
+Security Researcher,Secure Code Review,additional
+Vulnerability Management Analyst,Vulnerability Management,core
+Vulnerability Management Analyst,Vulnerability Assessment,core
+Vulnerability Management Analyst,Nessus,core
+Vulnerability Management Analyst,Risk Prioritization,core
+Vulnerability Management Analyst,CVSS,core
+Vulnerability Management Analyst,Patch Management,core
+Vulnerability Management Analyst,Remediation Tracking,core
+Vulnerability Management Analyst,Report Writing,core
+Vulnerability Management Analyst,Qualys,preferred
+Vulnerability Management Analyst,Networking,preferred
+Vulnerability Management Analyst,Linux,preferred
+Vulnerability Management Analyst,Windows,preferred
+Vulnerability Management Analyst,Asset Management,preferred
+Vulnerability Management Analyst,Cloud Security,preferred
+Vulnerability Management Analyst,Stakeholder Communication,preferred
+Vulnerability Management Analyst,Compliance,preferred
+Vulnerability Management Analyst,Python,additional
+Vulnerability Management Analyst,Container Security,additional
+Vulnerability Management Analyst,Penetration Testing,additional
+Vulnerability Management Analyst,Ticketing Systems,additional
+Cloud Security Engineer,Cloud Security,core
+Cloud Security Engineer,IAM,core
+Cloud Security Engineer,AWS Security,core
+Cloud Security Engineer,Azure Security,core
+Cloud Security Engineer,Cloud Logging,core
+Cloud Security Engineer,Network Security,core
+Cloud Security Engineer,Container Security,core
+Cloud Security Engineer,Infrastructure as Code Security,core
+Cloud Security Engineer,Cloud Security Posture Management,preferred
+Cloud Security Engineer,Kubernetes Security,preferred
+Cloud Security Engineer,Vulnerability Management,preferred
+Cloud Security Engineer,Incident Response,preferred
+Cloud Security Engineer,Compliance,preferred
+Cloud Security Engineer,Encryption,preferred
+Cloud Security Engineer,Terraform,preferred
+Cloud Security Engineer,Python,preferred
+Cloud Security Engineer,GCP Security,additional
+Cloud Security Engineer,Security Monitoring,additional
+Cloud Security Engineer,CI/CD Security,additional
+Cloud Security Engineer,Zero Trust,additional
+Cloud Security Analyst,Cloud Security,core
+Cloud Security Analyst,IAM,core
+Cloud Security Analyst,AWS Security,core
+Cloud Security Analyst,Azure Security,core
+Cloud Security Analyst,Cloud Logging,core
+Cloud Security Analyst,Network Security,core
+Cloud Security Analyst,Security Monitoring,core
+Cloud Security Analyst,Container Security,preferred
+Cloud Security Analyst,Cloud Security Posture Management,preferred
+Cloud Security Analyst,Vulnerability Management,preferred
+Cloud Security Analyst,Incident Response,preferred
+Cloud Security Analyst,Compliance,preferred
+Cloud Security Analyst,Encryption,preferred
+Cloud Security Analyst,Python,preferred
+Cloud Security Analyst,Alert Triage,preferred
+Cloud Security Analyst,Infrastructure as Code Security,additional
+Cloud Security Analyst,Kubernetes Security,additional
+Cloud Security Analyst,Terraform,additional
+Cloud Security Analyst,GCP Security,additional
+Cloud Security Architect,Cloud Security,core
+Cloud Security Architect,IAM,core
+Cloud Security Architect,AWS Security,core
+Cloud Security Architect,Azure Security,core
+Cloud Security Architect,Cloud Logging,core
+Cloud Security Architect,Network Security,core
+Cloud Security Architect,Container Security,core
+Cloud Security Architect,Cloud Security Posture Management,core
+Cloud Security Architect,Zero Trust,core
+Cloud Security Architect,Security Architecture,core
+Cloud Security Architect,Infrastructure as Code Security,preferred
+Cloud Security Architect,Kubernetes Security,preferred
+Cloud Security Architect,Vulnerability Management,preferred
+Cloud Security Architect,Compliance,preferred
+Cloud Security Architect,Encryption,preferred
+Cloud Security Architect,Python,preferred
+Cloud Security Architect,Threat Modeling,preferred
+Cloud Security Architect,GCP Security,additional
+Cloud Security Architect,Security Monitoring,additional
+Cloud Security Architect,CI/CD Security,additional
+Application Security Engineer,Application Security,core
+Application Security Engineer,OWASP Top 10,core
+Application Security Engineer,Secure Code Review,core
+Application Security Engineer,SAST,core
+Application Security Engineer,DAST,core
+Application Security Engineer,Threat Modeling,core
+Application Security Engineer,Secure SDLC,core
+Application Security Engineer,Web Application Security,core
+Application Security Engineer,API Security,preferred
+Application Security Engineer,SCA,preferred
+Application Security Engineer,Burp Suite,preferred
+Application Security Engineer,Python,preferred
+Application Security Engineer,Java,preferred
+Application Security Engineer,Authentication and Authorization,preferred
+Application Security Engineer,CI/CD Security,preferred
+Application Security Engineer,Penetration Testing,preferred
+Application Security Engineer,Mobile Application Security,additional
+Application Security Engineer,Container Security,additional
+Application Security Engineer,Cloud Security,additional
+Application Security Engineer,Vulnerability Disclosure,additional
+Application Security Analyst,Application Security,core
+Application Security Analyst,OWASP Top 10,core
+Application Security Analyst,Secure Code Review,core
+Application Security Analyst,SAST,core
+Application Security Analyst,DAST,core
+Application Security Analyst,Threat Modeling,core
+Application Security Analyst,Secure SDLC,core
+Application Security Analyst,Web Application Security,core
+Application Security Analyst,API Security,preferred
+Application Security Analyst,SCA,preferred
+Application Security Analyst,Burp Suite,preferred
+Application Security Analyst,Python,preferred
+Application Security Analyst,Authentication and Authorization,preferred
+Application Security Analyst,CI/CD Security,preferred
+Application Security Analyst,Penetration Testing,preferred
+Application Security Analyst,Vulnerability Management,preferred
+Application Security Analyst,Report Writing,preferred
+Application Security Analyst,Mobile Application Security,additional
+Application Security Analyst,Vulnerability Disclosure,additional
+Product Security Engineer,Application Security,core
+Product Security Engineer,OWASP Top 10,core
+Product Security Engineer,Secure Code Review,core
+Product Security Engineer,SAST,core
+Product Security Engineer,DAST,core
+Product Security Engineer,Threat Modeling,core
+Product Security Engineer,Secure SDLC,core
+Product Security Engineer,Web Application Security,core
+Product Security Engineer,API Security,preferred
+Product Security Engineer,SCA,preferred
+Product Security Engineer,Burp Suite,preferred
+Product Security Engineer,Python,preferred
+Product Security Engineer,Java,preferred
+Product Security Engineer,Authentication and Authorization,preferred
+Product Security Engineer,CI/CD Security,preferred
+Product Security Engineer,Penetration Testing,preferred
+Product Security Engineer,Vulnerability Disclosure,preferred
+Product Security Engineer,Security Architecture Review,preferred
+Product Security Engineer,Mobile Application Security,additional
+Product Security Engineer,Cloud Security,additional
+DevSecOps Engineer,DevSecOps,core
+DevSecOps Engineer,CI/CD Security,core
+DevSecOps Engineer,SAST,core
+DevSecOps Engineer,DAST,core
+DevSecOps Engineer,SCA,core
+DevSecOps Engineer,Container Security,core
+DevSecOps Engineer,Infrastructure as Code Security,core
+DevSecOps Engineer,Secrets Management,core
+DevSecOps Engineer,Docker,preferred
+DevSecOps Engineer,Kubernetes Security,preferred
+DevSecOps Engineer,Git,preferred
+DevSecOps Engineer,Cloud Security,preferred
+DevSecOps Engineer,Terraform,preferred
+DevSecOps Engineer,Python,preferred
+DevSecOps Engineer,Linux,preferred
+DevSecOps Engineer,Vulnerability Management,preferred
+DevSecOps Engineer,Threat Modeling,additional
+DevSecOps Engineer,Policy as Code,additional
+DevSecOps Engineer,Compliance Automation,additional
+DevSecOps Engineer,Bash Scripting,additional
+Network Security Engineer,Network Security,core
+Network Security Engineer,Firewalls,core
+Network Security Engineer,IDS/IPS,core
+Network Security Engineer,VPN,core
+Network Security Engineer,TCP/IP,core
+Network Security Engineer,Network Segmentation,core
+Network Security Engineer,Routing and Switching,core
+Network Security Engineer,Network Monitoring,core
+Network Security Engineer,Firewall Rule Management,preferred
+Network Security Engineer,Wireshark,preferred
+Network Security Engineer,Zero Trust,preferred
+Network Security Engineer,Wireless Security,preferred
+Network Security Engineer,Linux,preferred
+Network Security Engineer,Incident Response,preferred
+Network Security Engineer,Vulnerability Assessment,preferred
+Network Security Engineer,Python,additional
+Network Security Engineer,SIEM,additional
+Network Security Engineer,Cloud Security,additional
+Network Security Engineer,Compliance,additional
+Network Security Engineer,Documentation,additional
+Network Security Consultant,Network Security,core
+Network Security Consultant,Firewalls,core
+Network Security Consultant,IDS/IPS,core
+Network Security Consultant,VPN,core
+Network Security Consultant,TCP/IP,core
+Network Security Consultant,Network Segmentation,core
+Network Security Consultant,Routing and Switching,core
+Network Security Consultant,Network Monitoring,core
+Network Security Consultant,Security Assessment,core
+Network Security Consultant,Firewall Rule Management,preferred
+Network Security Consultant,Wireshark,preferred
+Network Security Consultant,Zero Trust,preferred
+Network Security Consultant,Linux,preferred
+Network Security Consultant,Incident Response,preferred
+Network Security Consultant,Vulnerability Assessment,preferred
+Network Security Consultant,Compliance,preferred
+Network Security Consultant,Client Communication,preferred
+Network Security Consultant,Report Writing,preferred
+Network Security Consultant,SIEM,additional
+Network Security Consultant,Cloud Security,additional
+Firewall Engineer,Network Security,core
+Firewall Engineer,Firewalls,core
+Firewall Engineer,IDS/IPS,core
+Firewall Engineer,VPN,core
+Firewall Engineer,TCP/IP,core
+Firewall Engineer,Network Segmentation,core
+Firewall Engineer,Routing and Switching,core
+Firewall Engineer,Network Monitoring,core
+Firewall Engineer,Firewall Rule Management,core
+Firewall Engineer,Wireshark,preferred
+Firewall Engineer,Zero Trust,preferred
+Firewall Engineer,Linux,preferred
+Firewall Engineer,Incident Response,preferred
+Firewall Engineer,Vulnerability Assessment,preferred
+Firewall Engineer,Palo Alto Networks,preferred
+Firewall Engineer,Fortinet,preferred
+Firewall Engineer,Python,additional
+Firewall Engineer,Cloud Security,additional
+Firewall Engineer,Documentation,additional
+Firewall Engineer,High Availability,additional
+Endpoint Security Engineer,Endpoint Security,core
+Endpoint Security Engineer,EDR,core
+Endpoint Security Engineer,System Hardening,core
+Endpoint Security Engineer,Patch Management,core
+Endpoint Security Engineer,Windows,core
+Endpoint Security Engineer,Linux,core
+Endpoint Security Engineer,Incident Response,core
+Endpoint Security Engineer,Antivirus Management,core
+Endpoint Security Engineer,Device Control,preferred
+Endpoint Security Engineer,Mobile Device Management,preferred
+Endpoint Security Engineer,PowerShell,preferred
+Endpoint Security Engineer,Group Policy,preferred
+Endpoint Security Engineer,Vulnerability Management,preferred
+Endpoint Security Engineer,Threat Detection,preferred
+Endpoint Security Engineer,Application Whitelisting,preferred
+Endpoint Security Engineer,Active Directory,preferred
+Endpoint Security Engineer,Python,additional
+Endpoint Security Engineer,Encryption,additional
+Endpoint Security Engineer,Data Loss Prevention,additional
+Endpoint Security Engineer,SIEM,additional
+Security Administrator,Firewalls,core
+Security Administrator,Network Security,core
+Security Administrator,Vulnerability Management,core
+Security Administrator,Security Tool Deployment,core
+Security Administrator,Endpoint Security,core
+Security Administrator,System Hardening,core
+Security Administrator,Incident Response,core
+Security Administrator,User Access Management,core
+Security Administrator,SIEM,preferred
+Security Administrator,Linux,preferred
+Security Administrator,Windows,preferred
+Security Administrator,IAM,preferred
+Security Administrator,Encryption,preferred
+Security Administrator,Scripting,preferred
+Security Administrator,Patch Management,preferred
+Security Administrator,Active Directory,preferred
+Security Administrator,Compliance,additional
+Security Administrator,Vulnerability Assessment,additional
+Security Administrator,Documentation,additional
+Security Administrator,Backup and Recovery,additional
+Security Architect,Security Architecture,core
+Security Architect,Threat Modeling,core
+Security Architect,Risk Assessment,core
+Security Architect,Zero Trust,core
+Security Architect,Network Security,core
+Security Architect,Cloud Security,core
+Security Architect,IAM,core
+Security Architect,Encryption,core
+Security Architect,NIST CSF,preferred
+Security Architect,ISO 27001,preferred
+Security Architect,Application Security,preferred
+Security Architect,Secure SDLC,preferred
+Security Architect,Stakeholder Communication,preferred
+Security Architect,Documentation,preferred
+Security Architect,Compliance,preferred
+Security Architect,Container Security,preferred
+Security Architect,Python,additional
+Security Architect,DevSecOps,additional
+Security Architect,OT Security,additional
+Security Architect,Vendor Evaluation,additional
+Security Automation Engineer,Security Automation,core
+Security Automation Engineer,SOAR,core
+Security Automation Engineer,Python,core
+Security Automation Engineer,Scripting,core
+Security Automation Engineer,API Integration,core
+Security Automation Engineer,Playbook Development,core
+Security Automation Engineer,Incident Response,core
+Security Automation Engineer,SIEM,core
+Security Automation Engineer,PowerShell,preferred
+Security Automation Engineer,Bash Scripting,preferred
+Security Automation Engineer,Git,preferred
+Security Automation Engineer,Cloud Security,preferred
+Security Automation Engineer,Log Analysis,preferred
+Security Automation Engineer,Threat Intelligence,preferred
+Security Automation Engineer,Linux,preferred
+Security Automation Engineer,Infrastructure as Code Security,additional
+Security Automation Engineer,CI/CD Security,additional
+Security Automation Engineer,Vulnerability Management,additional
+Security Automation Engineer,Documentation,additional
+OT Security Engineer,OT Security,core
+OT Security Engineer,ICS/SCADA Security,core
+OT Security Engineer,Network Segmentation,core
+OT Security Engineer,IEC 62443,core
+OT Security Engineer,Industrial Protocols,core
+OT Security Engineer,Risk Assessment,core
+OT Security Engineer,Network Security,core
+OT Security Engineer,Incident Response,core
+OT Security Engineer,Firewalls,preferred
+OT Security Engineer,Network Monitoring,preferred
+OT Security Engineer,Vulnerability Assessment,preferred
+OT Security Engineer,Asset Management,preferred
+OT Security Engineer,NIST CSF,preferred
+OT Security Engineer,Patch Management,preferred
+OT Security Engineer,Threat Detection,preferred
+OT Security Engineer,Purdue Model,preferred
+OT Security Engineer,Python,additional
+OT Security Engineer,Wireshark,additional
+OT Security Engineer,Compliance,additional
+OT Security Engineer,Physical Security,additional
+GRC Analyst,GRC,core
+GRC Analyst,Risk Assessment,core
+GRC Analyst,ISO 27001,core
+GRC Analyst,NIST CSF,core
+GRC Analyst,Compliance,core
+GRC Analyst,Security Audit,core
+GRC Analyst,Policy Development,core
+GRC Analyst,Control Testing,core
+GRC Analyst,Documentation,core
+GRC Analyst,SOC 2,preferred
+GRC Analyst,PCI DSS,preferred
+GRC Analyst,GDPR,preferred
+GRC Analyst,DPDP Act,preferred
+GRC Analyst,Third-Party Risk Management,preferred
+GRC Analyst,Evidence Collection,preferred
+GRC Analyst,Report Writing,preferred
+GRC Analyst,Stakeholder Communication,preferred
+GRC Analyst,Business Continuity,additional
+GRC Analyst,Security Awareness,additional
+GRC Analyst,ServiceNow GRC,additional
+GRC Consultant,GRC,core
+GRC Consultant,Risk Assessment,core
+GRC Consultant,ISO 27001,core
+GRC Consultant,NIST CSF,core
+GRC Consultant,Compliance,core
+GRC Consultant,Security Audit,core
+GRC Consultant,Policy Development,core
+GRC Consultant,Control Testing,core
+GRC Consultant,Documentation,core
+GRC Consultant,Report Writing,core
+GRC Consultant,Client Communication,core
+GRC Consultant,SOC 2,preferred
+GRC Consultant,PCI DSS,preferred
+GRC Consultant,GDPR,preferred
+GRC Consultant,DPDP Act,preferred
+GRC Consultant,Third-Party Risk Management,preferred
+GRC Consultant,Evidence Collection,preferred
+GRC Consultant,Stakeholder Communication,preferred
+GRC Consultant,Gap Analysis,preferred
+GRC Consultant,ServiceNow GRC,additional
+GRC Solution Architect,GRC,core
+GRC Solution Architect,Risk Assessment,core
+GRC Solution Architect,ISO 27001,core
+GRC Solution Architect,NIST CSF,core
+GRC Solution Architect,Compliance,core
+GRC Solution Architect,Security Audit,core
+GRC Solution Architect,Policy Development,core
+GRC Solution Architect,Control Testing,core
+GRC Solution Architect,Documentation,core
+GRC Solution Architect,ServiceNow GRC,core
+GRC Solution Architect,SOC 2,preferred
+GRC Solution Architect,PCI DSS,preferred
+GRC Solution Architect,GDPR,preferred
+GRC Solution Architect,DPDP Act,preferred
+GRC Solution Architect,Third-Party Risk Management,preferred
+GRC Solution Architect,Stakeholder Communication,preferred
+GRC Solution Architect,Security Architecture,preferred
+GRC Solution Architect,Process Automation,preferred
+GRC Solution Architect,Requirements Analysis,preferred
+GRC Solution Architect,Business Continuity,additional
+Cybersecurity Auditor,GRC,core
+Cybersecurity Auditor,Risk Assessment,core
+Cybersecurity Auditor,ISO 27001,core
+Cybersecurity Auditor,NIST CSF,core
+Cybersecurity Auditor,Compliance,core
+Cybersecurity Auditor,Security Audit,core
+Cybersecurity Auditor,Control Testing,core
+Cybersecurity Auditor,Documentation,core
+Cybersecurity Auditor,Evidence Collection,core
+Cybersecurity Auditor,Audit Reporting,core
+Cybersecurity Auditor,Policy Development,preferred
+Cybersecurity Auditor,SOC 2,preferred
+Cybersecurity Auditor,PCI DSS,preferred
+Cybersecurity Auditor,GDPR,preferred
+Cybersecurity Auditor,DPDP Act,preferred
+Cybersecurity Auditor,Third-Party Risk Management,preferred
+Cybersecurity Auditor,Stakeholder Communication,preferred
+Cybersecurity Auditor,Security Awareness,additional
+Cybersecurity Auditor,ServiceNow GRC,additional
+Security Compliance Analyst,GRC,core
+Security Compliance Analyst,Risk Assessment,core
+Security Compliance Analyst,ISO 27001,core
+Security Compliance Analyst,NIST CSF,core
+Security Compliance Analyst,Compliance,core
+Security Compliance Analyst,Security Audit,core
+Security Compliance Analyst,Policy Development,core
+Security Compliance Analyst,Control Testing,core
+Security Compliance Analyst,Documentation,core
+Security Compliance Analyst,PCI DSS,core
+Security Compliance Analyst,Evidence Collection,core
+Security Compliance Analyst,SOC 2,preferred
+Security Compliance Analyst,GDPR,preferred
+Security Compliance Analyst,DPDP Act,preferred
+Security Compliance Analyst,Third-Party Risk Management,preferred
+Security Compliance Analyst,Report Writing,preferred
+Security Compliance Analyst,Stakeholder Communication,preferred
+Security Compliance Analyst,ServiceNow GRC,additional
+Cyber Risk Analyst,Risk Assessment,core
+Cyber Risk Analyst,Risk Management,core
+Cyber Risk Analyst,Risk Register,core
+Cyber Risk Analyst,Control Testing,core
+Cyber Risk Analyst,NIST CSF,core
+Cyber Risk Analyst,ISO 27001,core
+Cyber Risk Analyst,Report Writing,core
+Cyber Risk Analyst,Stakeholder Communication,core
+Cyber Risk Analyst,Risk Quantification,preferred
+Cyber Risk Analyst,Third-Party Risk Management,preferred
+Cyber Risk Analyst,Vulnerability Management,preferred
+Cyber Risk Analyst,Compliance,preferred
+Cyber Risk Analyst,Business Impact Analysis,preferred
+Cyber Risk Analyst,Policy Development,preferred
+Cyber Risk Analyst,Threat Intelligence,preferred
+Cyber Risk Analyst,Data Analysis,preferred
+Cyber Risk Analyst,FAIR Model,additional
+Cyber Risk Analyst,Microsoft Excel,additional
+Cyber Risk Analyst,Business Continuity,additional
+Cyber Risk Analyst,Cloud Security,additional
+Third-Party Risk Analyst,Risk Assessment,core
+Third-Party Risk Analyst,Risk Management,core
+Third-Party Risk Analyst,Risk Register,core
+Third-Party Risk Analyst,Control Testing,core
+Third-Party Risk Analyst,NIST CSF,core
+Third-Party Risk Analyst,ISO 27001,core
+Third-Party Risk Analyst,Report Writing,core
+Third-Party Risk Analyst,Stakeholder Communication,core
+Third-Party Risk Analyst,Third-Party Risk Management,core
+Third-Party Risk Analyst,Vendor Risk Assessment,core
+Third-Party Risk Analyst,Security Questionnaire Review,core
+Third-Party Risk Analyst,Risk Quantification,preferred
+Third-Party Risk Analyst,Vulnerability Management,preferred
+Third-Party Risk Analyst,Compliance,preferred
+Third-Party Risk Analyst,Business Impact Analysis,preferred
+Third-Party Risk Analyst,Policy Development,preferred
+Third-Party Risk Analyst,Data Analysis,preferred
+Third-Party Risk Analyst,Contract Review,preferred
+Third-Party Risk Analyst,Microsoft Excel,additional
+Third-Party Risk Analyst,Business Continuity,additional
+Data Protection Officer,Data Privacy,core
+Data Protection Officer,GDPR,core
+Data Protection Officer,DPDP Act,core
+Data Protection Officer,Privacy Impact Assessment,core
+Data Protection Officer,Data Protection,core
+Data Protection Officer,Policy Development,core
+Data Protection Officer,Compliance,core
+Data Protection Officer,Breach Notification,core
+Data Protection Officer,Privacy Program Management,core
+Data Protection Officer,Regulatory Liaison,core
+Data Protection Officer,Data Mapping,preferred
+Data Protection Officer,Data Classification,preferred
+Data Protection Officer,Consent Management,preferred
+Data Protection Officer,Data Subject Requests,preferred
+Data Protection Officer,Risk Assessment,preferred
+Data Protection Officer,Third-Party Risk Management,preferred
+Data Protection Officer,Stakeholder Communication,preferred
+Data Protection Officer,Documentation,preferred
+Data Protection Officer,ISO 27701,additional
+Data Protection Officer,Data Retention,additional
+Data Privacy Analyst,Data Privacy,core
+Data Privacy Analyst,GDPR,core
+Data Privacy Analyst,DPDP Act,core
+Data Privacy Analyst,Privacy Impact Assessment,core
+Data Privacy Analyst,Data Protection,core
+Data Privacy Analyst,Policy Development,core
+Data Privacy Analyst,Compliance,core
+Data Privacy Analyst,Data Mapping,core
+Data Privacy Analyst,Consent Management,core
+Data Privacy Analyst,Data Subject Requests,core
+Data Privacy Analyst,Data Classification,preferred
+Data Privacy Analyst,Breach Notification,preferred
+Data Privacy Analyst,Risk Assessment,preferred
+Data Privacy Analyst,Third-Party Risk Management,preferred
+Data Privacy Analyst,Stakeholder Communication,preferred
+Data Privacy Analyst,Documentation,preferred
+Data Privacy Analyst,ISO 27701,additional
+Data Privacy Analyst,Data Retention,additional
+Data Loss Prevention Analyst,Data Loss Prevention,core
+Data Loss Prevention Analyst,Data Classification,core
+Data Loss Prevention Analyst,Incident Response,core
+Data Loss Prevention Analyst,Policy Development,core
+Data Loss Prevention Analyst,Endpoint Security,core
+Data Loss Prevention Analyst,Email Security,core
+Data Loss Prevention Analyst,Log Analysis,core
+Data Loss Prevention Analyst,Data Protection,core
+Data Loss Prevention Analyst,DLP Policy Tuning,preferred
+Data Loss Prevention Analyst,CASB,preferred
+Data Loss Prevention Analyst,Encryption,preferred
+Data Loss Prevention Analyst,Insider Threat Detection,preferred
+Data Loss Prevention Analyst,SIEM,preferred
+Data Loss Prevention Analyst,Network Security,preferred
+Data Loss Prevention Analyst,Risk Assessment,preferred
+Data Loss Prevention Analyst,Compliance,preferred
+Data Loss Prevention Analyst,Python,additional
+Data Loss Prevention Analyst,Microsoft Purview,additional
+Data Loss Prevention Analyst,GDPR,additional
+Data Loss Prevention Analyst,Security Awareness,additional
+IAM Analyst,Identity and Access Management,core
+IAM Analyst,Access Control,core
+IAM Analyst,Active Directory,core
+IAM Analyst,SSO,core
+IAM Analyst,MFA,core
+IAM Analyst,Role-Based Access Control,core
+IAM Analyst,Access Reviews,core
+IAM Analyst,User Provisioning,core
+IAM Analyst,SAML,preferred
+IAM Analyst,OAuth 2.0,preferred
+IAM Analyst,Privileged Access Management,preferred
+IAM Analyst,Microsoft Entra ID,preferred
+IAM Analyst,LDAP,preferred
+IAM Analyst,Identity Governance,preferred
+IAM Analyst,Compliance,preferred
+IAM Analyst,Documentation,preferred
+IAM Analyst,Okta,additional
+IAM Analyst,SailPoint,additional
+IAM Engineer,Identity and Access Management,core
+IAM Engineer,Access Control,core
+IAM Engineer,Active Directory,core
+IAM Engineer,SSO,core
+IAM Engineer,MFA,core
+IAM Engineer,Role-Based Access Control,core
+IAM Engineer,User Provisioning,core
+IAM Engineer,Access Reviews,preferred
+IAM Engineer,SAML,preferred
+IAM Engineer,OAuth 2.0,preferred
+IAM Engineer,Privileged Access Management,preferred
+IAM Engineer,Microsoft Entra ID,preferred
+IAM Engineer,LDAP,preferred
+IAM Engineer,Identity Governance,preferred
+IAM Engineer,Okta,preferred
+IAM Engineer,SailPoint,preferred
+IAM Engineer,Scripting,preferred
+IAM Engineer,API Integration,preferred
+IAM Engineer,Python,additional
+IAM Engineer,Cloud Security,additional
+PAM Engineer,Identity and Access Management,core
+PAM Engineer,Access Control,core
+PAM Engineer,Active Directory,core
+PAM Engineer,SSO,core
+PAM Engineer,MFA,core
+PAM Engineer,Role-Based Access Control,core
+PAM Engineer,Access Reviews,core
+PAM Engineer,User Provisioning,core
+PAM Engineer,Privileged Access Management,core
+PAM Engineer,Credential Vaulting,core
+PAM Engineer,Microsoft Entra ID,preferred
+PAM Engineer,LDAP,preferred
+PAM Engineer,Identity Governance,preferred
+PAM Engineer,Compliance,preferred
+PAM Engineer,Documentation,preferred
+PAM Engineer,CyberArk,preferred
+PAM Engineer,Secrets Management,preferred
+PAM Engineer,Session Recording,preferred
+PAM Engineer,Python,additional
+PAM Engineer,Cloud Security,additional
+Incident Response Analyst,Incident Response,core
+Incident Response Analyst,Log Analysis,core
+Incident Response Analyst,SIEM,core
+Incident Response Analyst,Digital Forensics,core
+Incident Response Analyst,Malware Analysis,core
+Incident Response Analyst,Threat Detection,core
+Incident Response Analyst,Incident Containment,core
+Incident Response Analyst,Incident Reporting,core
+Incident Response Analyst,MITRE ATT&CK,preferred
+Incident Response Analyst,EDR,preferred
+Incident Response Analyst,Memory Forensics,preferred
+Incident Response Analyst,Network Forensics,preferred
+Incident Response Analyst,Windows Event Logs,preferred
+Incident Response Analyst,Linux,preferred
+Incident Response Analyst,Threat Intelligence,preferred
+Incident Response Analyst,Playbook Development,preferred
+Incident Response Analyst,Python,additional
+Incident Response Analyst,Ransomware Response,additional
+Incident Response Analyst,Cloud Incident Response,additional
+Incident Response Analyst,Crisis Communication,additional
+Threat Intelligence Analyst,Threat Intelligence,core
+Threat Intelligence Analyst,MITRE ATT&CK,core
+Threat Intelligence Analyst,OSINT,core
+Threat Intelligence Analyst,Threat Actor Profiling,core
+Threat Intelligence Analyst,IOC Analysis,core
+Threat Intelligence Analyst,Threat Analysis,core
+Threat Intelligence Analyst,Report Writing,core
+Threat Intelligence Analyst,Threat Intelligence Platforms,preferred
+Threat Intelligence Analyst,STIX/TAXII,preferred
+Threat Intelligence Analyst,Malware Analysis,preferred
+Threat Intelligence Analyst,SIEM,preferred
+Threat Intelligence Analyst,Threat Hunting,preferred
+Threat Intelligence Analyst,Cyber Kill Chain,preferred
+Threat Intelligence Analyst,Networking,preferred
+Threat Intelligence Analyst,Python,preferred
+Threat Intelligence Analyst,Dark Web Monitoring,additional
+Threat Intelligence Analyst,Incident Response,additional
+Threat Intelligence Analyst,YARA,additional
+Threat Intelligence Analyst,Stakeholder Communication,additional
+Threat Hunter,Threat Hunting,core
+Threat Hunter,MITRE ATT&CK,core
+Threat Hunter,Log Analysis,core
+Threat Hunter,SIEM,core
+Threat Hunter,EDR,core
+Threat Hunter,Threat Intelligence,core
+Threat Hunter,Hypothesis-Driven Hunting,core
+Threat Hunter,Behavioral Analysis,core
+Threat Hunter,Windows Event Logs,preferred
+Threat Hunter,Linux,preferred
+Threat Hunter,Network Traffic Analysis,preferred
+Threat Hunter,Python,preferred
+Threat Hunter,KQL,preferred
+Threat Hunter,Splunk,preferred
+Threat Hunter,Sigma Rules,preferred
+Threat Hunter,Malware Analysis,preferred
+Threat Hunter,YARA,additional
+Threat Hunter,Digital Forensics,additional
+Threat Hunter,Cloud Logging,additional
+Threat Hunter,Incident Response,additional
+Detection Engineer,Detection Engineering,core
+Detection Engineer,Detection Rule Development,core
+Detection Engineer,SIEM,core
+Detection Engineer,MITRE ATT&CK,core
+Detection Engineer,Log Analysis,core
+Detection Engineer,Sigma Rules,core
+Detection Engineer,Threat Detection,core
+Detection Engineer,Scripting,core
+Detection Engineer,Python,preferred
+Detection Engineer,Splunk,preferred
+Detection Engineer,KQL,preferred
+Detection Engineer,EDR,preferred
+Detection Engineer,Threat Intelligence,preferred
+Detection Engineer,Windows Event Logs,preferred
+Detection Engineer,Purple Teaming,preferred
+Detection Engineer,Git,preferred
+Detection Engineer,YARA,additional
+Detection Engineer,Cloud Logging,additional
+Detection Engineer,SOAR,additional
+Detection Engineer,Regular Expressions,additional
+Malware Analyst,Malware Analysis,core
+Malware Analyst,Reverse Engineering,core
+Malware Analyst,Static Analysis,core
+Malware Analyst,Dynamic Analysis,core
+Malware Analyst,Assembly Language,core
+Malware Analyst,Windows Internals,core
+Malware Analyst,Sandbox Analysis,core
+Malware Analyst,IOC Analysis,core
+Malware Analyst,Ghidra,preferred
+Malware Analyst,IDA Pro,preferred
+Malware Analyst,Debugging,preferred
+Malware Analyst,YARA,preferred
+Malware Analyst,Python,preferred
+Malware Analyst,Memory Forensics,preferred
+Malware Analyst,Network Traffic Analysis,preferred
+Malware Analyst,Threat Intelligence,preferred
+Malware Analyst,C Programming,additional
+Malware Analyst,Malware Unpacking,additional
+Malware Analyst,Linux,additional
+Malware Analyst,Report Writing,additional
+Digital Forensics Analyst,Digital Forensics,core
+Digital Forensics Analyst,Disk Forensics,core
+Digital Forensics Analyst,Memory Forensics,core
+Digital Forensics Analyst,Chain of Custody,core
+Digital Forensics Analyst,Forensic Imaging,core
+Digital Forensics Analyst,File System Analysis,core
+Digital Forensics Analyst,Windows Forensics,core
+Digital Forensics Analyst,Report Writing,core
+Digital Forensics Analyst,EnCase,preferred
+Digital Forensics Analyst,FTK,preferred
+Digital Forensics Analyst,Autopsy,preferred
+Digital Forensics Analyst,Log Analysis,preferred
+Digital Forensics Analyst,Network Forensics,preferred
+Digital Forensics Analyst,Linux Forensics,preferred
+Digital Forensics Analyst,Mobile Forensics,preferred
+Digital Forensics Analyst,Incident Response,preferred
+Digital Forensics Analyst,Malware Analysis,additional
+Digital Forensics Analyst,Python,additional
+Digital Forensics Analyst,Cloud Forensics,additional
+Digital Forensics Analyst,Expert Testimony,additional
+Cyber Forensic Investigator,Digital Forensics,core
+Cyber Forensic Investigator,Disk Forensics,core
+Cyber Forensic Investigator,Memory Forensics,core
+Cyber Forensic Investigator,Chain of Custody,core
+Cyber Forensic Investigator,Forensic Imaging,core
+Cyber Forensic Investigator,File System Analysis,core
+Cyber Forensic Investigator,Windows Forensics,core
+Cyber Forensic Investigator,Report Writing,core
+Cyber Forensic Investigator,Investigation Techniques,core
+Cyber Forensic Investigator,EnCase,preferred
+Cyber Forensic Investigator,FTK,preferred
+Cyber Forensic Investigator,Autopsy,preferred
+Cyber Forensic Investigator,Log Analysis,preferred
+Cyber Forensic Investigator,Network Forensics,preferred
+Cyber Forensic Investigator,Linux Forensics,preferred
+Cyber Forensic Investigator,Mobile Forensics,preferred
+Cyber Forensic Investigator,Incident Response,preferred
+Cyber Forensic Investigator,Cyber Law,preferred
+Cyber Forensic Investigator,Malware Analysis,additional
+Cyber Forensic Investigator,Expert Testimony,additional
+Cyber Crime Investigator,Digital Forensics,core
+Cyber Crime Investigator,Disk Forensics,core
+Cyber Crime Investigator,Memory Forensics,core
+Cyber Crime Investigator,Chain of Custody,core
+Cyber Crime Investigator,Forensic Imaging,core
+Cyber Crime Investigator,File System Analysis,core
+Cyber Crime Investigator,Windows Forensics,core
+Cyber Crime Investigator,Report Writing,core
+Cyber Crime Investigator,Cyber Law,core
+Cyber Crime Investigator,Investigation Techniques,core
+Cyber Crime Investigator,EnCase,preferred
+Cyber Crime Investigator,FTK,preferred
+Cyber Crime Investigator,Autopsy,preferred
+Cyber Crime Investigator,Log Analysis,preferred
+Cyber Crime Investigator,Network Forensics,preferred
+Cyber Crime Investigator,Mobile Forensics,preferred
+Cyber Crime Investigator,Incident Response,preferred
+Cyber Crime Investigator,Expert Testimony,preferred
+Cyber Crime Investigator,OSINT,preferred
+Cyber Crime Investigator,Social Media Investigation,additional
+Cryptographer,Cryptography,core
+Cryptographer,Cryptographic Implementation,core
+Cryptographer,Symmetric Encryption,core
+Cryptographer,Asymmetric Encryption,core
+Cryptographer,Hash Functions,core
+Cryptographer,PKI,core
+Cryptographer,Key Management,core
+Cryptographer,Cryptographic Protocols,core
+Cryptographer,TLS/SSL,preferred
+Cryptographer,Number Theory,preferred
+Cryptographer,Python,preferred
+Cryptographer,C Programming,preferred
+Cryptographer,Cryptanalysis,preferred
+Cryptographer,Post-Quantum Cryptography,preferred
+Cryptographer,Digital Signatures,preferred
+Cryptographer,Secure Protocol Design,preferred
+Cryptographer,Hardware Security Modules,additional
+Cryptographer,Blockchain Security,additional
+Cryptographer,Research Writing,additional
+Cryptographer,Formal Verification,additional
+Information Security Manager,Information Security Management,core
+Information Security Manager,Security Governance,core
+Information Security Manager,Risk Management,core
+Information Security Manager,ISO 27001,core
+Information Security Manager,Incident Response,core
+Information Security Manager,Policy Development,core
+Information Security Manager,Team Management,core
+Information Security Manager,Compliance,core
+Information Security Manager,NIST CSF,preferred
+Information Security Manager,Security Audit,preferred
+Information Security Manager,Vendor Management,preferred
+Information Security Manager,Business Continuity,preferred
+Information Security Manager,Security Awareness,preferred
+Information Security Manager,Stakeholder Communication,preferred
+Information Security Manager,Metrics and Reporting,preferred
+Information Security Manager,Budget Management,preferred
+Information Security Manager,Cloud Security,additional
+Information Security Manager,Vulnerability Management,additional
+Information Security Manager,Data Privacy,additional
+Information Security Manager,SOC 2,additional
+Chief Information Security Officer,Security Strategy,core
+Chief Information Security Officer,Security Governance,core
+Chief Information Security Officer,Risk Management,core
+Chief Information Security Officer,Executive Communication,core
+Chief Information Security Officer,Incident Response,core
+Chief Information Security Officer,Security Program Management,core
+Chief Information Security Officer,Team Management,core
+Chief Information Security Officer,Budget Management,core
+Chief Information Security Officer,ISO 27001,preferred
+Chief Information Security Officer,NIST CSF,preferred
+Chief Information Security Officer,Board Reporting,preferred
+Chief Information Security Officer,Business Continuity,preferred
+Chief Information Security Officer,Third-Party Risk Management,preferred
+Chief Information Security Officer,Data Privacy,preferred
+Chief Information Security Officer,Compliance,preferred
+Chief Information Security Officer,Crisis Management,preferred
+Chief Information Security Officer,Cloud Security,additional
+Chief Information Security Officer,Zero Trust,additional
+Chief Information Security Officer,Security Awareness,additional
+Chief Information Security Officer,Threat Intelligence,additional

@@ -1,0 +1,36 @@
+﻿.env
+.env.*
+!.env.example
+
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+build/
+
+uploads/
+*.pyc
+*.log
+
+.idea/
+.vscode/
+
+futrsec_resume.backup
+test_out.docx
+
+
+# Local database and personal test files
+futrsec_resume.backup
+test_out.docx
+
+# Generated personal documents
+uploads/
+
+# Local database and personal test files
+futrsec_resume.backup
+test_out.docx
+
+# Generated personal documents
+uploads/
