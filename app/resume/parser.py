@@ -9,7 +9,7 @@ import re
 import zipfile
 import logging
 from pathlib import Path
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional, List
 import fitz  # PyMuPDF
 from pypdf import PdfReader
 from docx import Document
@@ -112,45 +112,125 @@ class ResumeParser:
         return ext
 
     @classmethod
+    def _detect_page_columns(
+        cls, blocks: list, page_width: float, page_height: float
+    ) -> Tuple[bool, Optional[float]]:
+        """Detects if a PDF page has a genuine two-column layout with a vertical gutter.
+
+        Distinguishes real multi-column layouts from single-column resumes that have
+        right-aligned dates, badges, or marginal metadata.
+        """
+        # Focus on body region (exclude top 8% header and bottom 6% footer)
+        body_blocks = [
+            b for b in blocks
+            if b[1] >= page_height * 0.08 and b[3] <= page_height * 0.94
+        ]
+        if len(body_blocks) < 4:
+            return False, None
+
+        mid_x = page_width / 2.0
+
+        # Check for wide content blocks crossing the horizontal middle
+        # In a genuine two-column page, body blocks do not cross the center gutter.
+        # Resumes with single-column paragraphs/bullets have blocks spanning > 35% of page width across mid_x.
+        spanning_blocks = [
+            b for b in body_blocks
+            if b[0] < mid_x < b[2] and (b[2] - b[0]) > (0.35 * page_width)
+        ]
+        if len(spanning_blocks) >= 2:
+            # Definitive single-column layout with wide body text
+            return False, None
+
+        # Search for a clean vertical whitespace gutter between 28% and 72% of page width
+        min_gutter_width = 12.0  # At least 12 points of clear vertical whitespace
+        best_gutter_x = None
+        min_crossing = 999
+
+        candidate_positions = [
+            page_width * 0.33,
+            page_width * 0.40,
+            mid_x,
+            page_width * 0.60,
+            page_width * 0.67,
+        ]
+
+        for gx in candidate_positions:
+            g_left = gx - (min_gutter_width / 2.0)
+            g_right = gx + (min_gutter_width / 2.0)
+
+            crossing = [b for b in body_blocks if not (b[2] <= g_left or b[0] >= g_right)]
+            if len(crossing) < min_crossing:
+                min_crossing = len(crossing)
+                best_gutter_x = gx
+
+        # Valid two-column page requires:
+        # 1. At most 1 crossing block (allowing for slight decorative line or divider)
+        # 2. At least 2 distinct body blocks in the left column
+        # 3. At least 2 distinct body blocks in the right column
+        if best_gutter_x is not None and min_crossing <= 1:
+            left_col = [b for b in body_blocks if b[2] <= best_gutter_x + 5]
+            right_col = [b for b in body_blocks if b[0] >= best_gutter_x - 5]
+            if len(left_col) >= 2 and len(right_col) >= 2:
+                return True, best_gutter_x
+
+        return False, None
+
+    @classmethod
     def _extract_page_text_column_aware(cls, page: fitz.Page) -> str:
         """Extracts text from a PDF page respecting multi-column layouts and visual flow.
 
         Detects two-column or multi-column regions and sequences blocks column-by-column
         (Header -> Left Column Top-to-Bottom -> Right Column Top-to-Bottom -> Bottom/Footer),
-        preventing interleaved text across columns.
+        while ensuring single-column resumes with right-aligned dates/locations retain
+        consecutive natural reading order.
         """
         blocks = [b for b in page.get_text("blocks") if b[6] == 0 and b[4].strip()]
         if not blocks:
             return ""
 
         page_width = page.rect.width
-        mid_x = page_width / 2.0
+        page_height = page.rect.height
 
-        # Check for two-column structure (blocks predominantly on left vs right)
-        left_blocks = [b for b in blocks if b[2] <= mid_x + 30 and b[0] < mid_x - 30]
-        right_blocks = [b for b in blocks if b[0] >= mid_x - 30 and b[2] > mid_x + 30]
+        is_two_column, gutter_x = cls._detect_page_columns(blocks, page_width, page_height)
 
-        # If significant two-column layout detected (at least 2 distinct blocks on each side)
-        if len(left_blocks) >= 2 and len(right_blocks) >= 2:
-            min_col_y = min(min(b[1] for b in left_blocks), min(b[1] for b in right_blocks))
-            max_col_y = max(max(b[3] for b in left_blocks), max(b[3] for b in right_blocks))
+        if is_two_column and gutter_x is not None:
+            # Genuine two-column layout
+            # 1. Top blocks (header section spanning above columns)
+            # Find the top of column content
+            col_blocks = [b for b in blocks if (b[2] <= gutter_x + 10 or b[0] >= gutter_x - 10)]
+            min_col_y = min(b[1] for b in col_blocks) if col_blocks else 0
+            max_col_y = max(b[3] for b in col_blocks) if col_blocks else page_height
 
-            # Header blocks above column split (e.g., candidate name, contact info)
-            top_blocks = sorted([b for b in blocks if b[3] <= min_col_y + 10], key=lambda b: (b[1], b[0]))
-            # Footer blocks below column split
-            bottom_blocks = sorted([b for b in blocks if b[1] >= max_col_y - 10 and b not in top_blocks], key=lambda b: (b[1], b[0]))
+            top_blocks = sorted(
+                [b for b in blocks if b[3] <= min_col_y + 10],
+                key=lambda b: (round(b[1] / 4.0), b[0]),
+            )
+            bottom_blocks = sorted(
+                [b for b in blocks if b[1] >= max_col_y - 10 and b not in top_blocks],
+                key=lambda b: (round(b[1] / 4.0), b[0]),
+            )
 
-            col_left = sorted([b for b in left_blocks if b not in top_blocks and b not in bottom_blocks], key=lambda b: (b[1], b[0]))
-            col_right = sorted([b for b in right_blocks if b not in top_blocks and b not in bottom_blocks], key=lambda b: (b[1], b[0]))
+            col_left = sorted(
+                [b for b in blocks if b[2] <= gutter_x and b not in top_blocks and b not in bottom_blocks],
+                key=lambda b: (round(b[1] / 4.0), b[0]),
+            )
+            col_right = sorted(
+                [b for b in blocks if b[0] >= gutter_x and b not in top_blocks and b not in bottom_blocks],
+                key=lambda b: (round(b[1] / 4.0), b[0]),
+            )
 
-            remaining = [b for b in blocks if b not in top_blocks and b not in bottom_blocks and b not in col_left and b not in col_right]
-            remaining_sorted = sorted(remaining, key=lambda b: (b[1], b[0]))
+            # Any spanning or unassigned blocks
+            remaining = [
+                b for b in blocks
+                if b not in top_blocks and b not in bottom_blocks and b not in col_left and b not in col_right
+            ]
+            remaining_sorted = sorted(remaining, key=lambda b: (round(b[1] / 4.0), b[0]))
 
             ordered_blocks = top_blocks + col_left + col_right + remaining_sorted + bottom_blocks
             return "\n".join(b[4].strip() for b in ordered_blocks if b[4].strip())
         else:
-            # Single-column / standard flow: sort blocks top-to-bottom, left-to-right
-            sorted_blocks = sorted(blocks, key=lambda b: (b[1], b[0]))
+            # Single-column / standard flow: sort blocks top-to-bottom, left-to-right by visual line
+            sorted_blocks = sorted(blocks, key=lambda b: (round(b[1] / 4.0), b[0]))
             return "\n".join(b[4].strip() for b in sorted_blocks if b[4].strip())
 
     @classmethod

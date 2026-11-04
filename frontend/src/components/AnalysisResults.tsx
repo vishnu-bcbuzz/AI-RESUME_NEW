@@ -41,6 +41,7 @@ import { ImprovementPlanView } from './ImprovementPlanView';
 import { ResumeImprovementResults } from './ResumeImprovementResults';
 import { LoadingOverlay } from './LoadingOverlay';
 import { CircularScoreIndicator, getScoreColorConfig } from './CircularScoreIndicator';
+import { ResumeVerificationReport } from './ResumeVerificationReport';
 
 interface AnalysisResultsProps {
   analysis: AnalysisResponse;
@@ -577,6 +578,11 @@ export const AnalysisResults: React.FC<AnalysisResultsProps> = ({
       </div>
     </>
   )}
+
+      {/* UNIVERSAL RESUME EXTRACTION & VERIFICATION REPORT */}
+      <ResumeVerificationReport
+        report={analysis.verification_report || analysis.parsed_resume?.verification_report}
+      />
 
       {/* ERROR BANNER FOR IMPROVEMENT */}
       {improvementError && (

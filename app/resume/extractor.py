@@ -16,6 +16,7 @@ from app.resume.skills_taxonomy import (
     NORMALIZATION_MAP,
     CATEGORY_MAPPING,
 )
+from app.resume.verifier import ResumeVerificationEngine
 
 
 class ContactInfo(BaseModel):
@@ -30,9 +31,12 @@ class ContactInfo(BaseModel):
 class EducationEntry(BaseModel):
     degree: str
     field_of_study: Optional[str] = None
+    specialization: Optional[str] = None
     institution: Optional[str] = None
     graduation_year: Optional[str] = None
     gpa: Optional[str] = None
+    cgpa: Optional[str] = None
+    percentage: Optional[str] = None
     raw_text: Optional[str] = None
 
 
@@ -47,6 +51,8 @@ class ProjectEntry(BaseModel):
     start_date: Optional[str] = None
     end_date: Optional[str] = None
     bullets: List[str] = Field(default_factory=list)
+    is_nested: bool = False
+    parent_context: Optional[str] = None
 
 
 class ExperienceEntry(BaseModel):
@@ -105,6 +111,7 @@ class ParsedResumeData(BaseModel):
     career_objective: Optional[str] = None
     professional_summary: Optional[str] = None
     technical_skills: List[str] = Field(default_factory=list)
+    soft_skills: List[str] = Field(default_factory=list)
     education: List[EducationEntry] = Field(default_factory=list)
     certifications: List[str] = Field(default_factory=list)
     structured_certifications: List[CertificationEntry] = Field(default_factory=list)
@@ -112,8 +119,11 @@ class ParsedResumeData(BaseModel):
     employment_history: List[ExperienceEntry] = Field(default_factory=list)
     internships: List[ExperienceEntry] = Field(default_factory=list)
     achievements: List[str] = Field(default_factory=list)
+    languages: List[str] = Field(default_factory=list)
+    publications: List[str] = Field(default_factory=list)
     raw_sections: Dict[str, str] = Field(default_factory=dict)
     extraction_metadata: Dict[str, SectionMetadata] = Field(default_factory=dict)
+    verification_report: Dict[str, Any] = Field(default_factory=dict)
 
 
 class ResumeExtractor:
@@ -194,6 +204,18 @@ class ResumeExtractor:
             "key accomplishments", "extracurricular achievements",
             "extracurricular activities", "activities & achievements",
         ],
+        "languages": [
+            "languages", "languages known", "language proficiencies",
+            "linguistic skills", "languages spoken", "language skills",
+        ],
+        "soft_skills": [
+            "soft skills", "interpersonal skills", "personal skills",
+            "leadership skills", "behavioral skills",
+        ],
+        "publications": [
+            "publications", "research papers", "papers published",
+            "published works", "academic publications", "conference papers",
+        ],
         "coding_profiles": [
             "coding profiles", "coding profile", "coding platforms",
             "competitive programming", "coding handles", "online judges",
@@ -269,6 +291,15 @@ class ResumeExtractor:
             r"(?i)^(?:achievements|honors\s*(?:&|and)\s*awards|key\s+achievements|awards|honors|"
             r"recognitions|accomplishments|awards\s*(?:&|and)\s*honors|key\s+accomplishments|"
             r"extracurricular\s+achievements|extracurricular\s+activities|activities\s*(?:&|and)\s*achievements)\b"
+        ),
+        "languages": re.compile(
+            r"(?i)^(?:languages\s+known|language\s+proficiencies|linguistic\s+skills|languages\s+spoken|language\s+skills|languages)\b"
+        ),
+        "soft_skills": re.compile(
+            r"(?i)^(?:soft\s+skills|interpersonal\s+skills|personal\s+skills|leadership\s+skills|behavioral\s+skills)\b"
+        ),
+        "publications": re.compile(
+            r"(?i)^(?:publications|research\s+papers|papers\s+published|published\s+works|academic\s+publications|conference\s+papers)\b"
         ),
         "coding_profiles": re.compile(r"(?i)^(?:coding\s+profiles?|coding\s+platforms?|competitive\s+programming|coding\s+handles?|online\s+judges?)\b"),
     }
@@ -393,7 +424,9 @@ class ResumeExtractor:
 
         # Skills (with fallback full text search)
         skills_sec = sections.get("skills", "")
+        soft_skills_sec = sections.get("soft_skills", "")
         skills = cls._extract_skills(skills_sec, text, candidate_name=name, contact_info=contact)
+        soft_skills = cls._extract_soft_skills(skills_sec, soft_skills_sec)
         skills_method = "direct" if skills_sec else ("fallback_scan" if skills else "none")
 
         # Certifications (with fallback cyber cert search)
@@ -406,30 +439,43 @@ class ResumeExtractor:
         education = cls._extract_education(edu_sec, text)
         edu_method = "direct" if edu_sec else ("fallback_scan" if education else "none")
 
-        # Projects (with fallback heuristic scan if section not detected)
-        proj_sec = sections.get("projects", "")
-        projects = cls._extract_projects(proj_sec)
-        proj_method = "direct" if proj_sec and projects else "none"
-        if not projects and not proj_sec:
-            projects = cls._extract_projects_fallback(text)
-            if projects:
-                proj_method = "fallback_scan"
-
-        # Experience & Internships (with fallback heuristic scan if section not detected)
+        # Experience, Internships & Nested Projects
         exp_sec = sections.get("experience", "")
-        experience = cls._extract_experience(exp_sec)
-        exp_method = "direct" if exp_sec and experience else "none"
-        if not experience and not exp_sec:
-            experience = cls._extract_experience_fallback(text)
-            if experience:
+        internships_sec = sections.get("internships", "")
+        employment, internships, nested_projects = cls._extract_experience_with_nested(
+            exp_section=exp_sec, intern_section=internships_sec, full_text=text
+        )
+        exp_method = "direct" if (exp_sec or internships_sec) and (employment or internships) else "none"
+        if not employment and not internships and not exp_sec and not internships_sec:
+            fallback_exp = cls._extract_experience_fallback(text)
+            if fallback_exp:
+                employment = [e for e in fallback_exp if "intern" not in e.job_title.lower()]
+                internships = [e for e in fallback_exp if "intern" in e.job_title.lower()]
                 exp_method = "fallback_scan"
 
-        internships_sec = sections.get("internships", "")
-        internships = cls._extract_experience(internships_sec)
+        # Projects (Standalone + Nested)
+        proj_sec = sections.get("projects", "")
+        standalone_projects = cls._extract_projects(proj_sec) if proj_sec else []
+        if not standalone_projects and not nested_projects and not proj_sec:
+            standalone_projects = cls._extract_projects_fallback(text)
+
+        all_projects = cls._deduplicate_projects(standalone_projects + nested_projects)
+        proj_method = (
+            "direct" if (proj_sec and standalone_projects) or nested_projects
+            else ("fallback_scan" if all_projects else "none")
+        )
 
         # Achievements
         achievements_sec = sections.get("achievements", "")
         achievements = cls._extract_list_items(achievements_sec)
+
+        # Languages
+        lang_sec = sections.get("languages", "")
+        languages = cls._extract_languages(lang_sec, text)
+
+        # Publications
+        pub_sec = sections.get("publications", "")
+        publications = cls._extract_list_items(pub_sec)
 
         # Build SectionExtractionMetadata
         metadata = {
@@ -454,17 +500,17 @@ class ResumeExtractor:
                 extraction_method=skills_method,
             ),
             "projects": SectionMetadata(
-                status="extracted" if proj_sec and projects else ("fallback_used" if projects else "not_found"),
-                confidence=1.0 if proj_sec and projects else (0.80 if projects else 0.0),
-                heading_detected=detected_headings.get("projects"),
-                item_count=len(projects),
+                status="extracted" if all_projects else "not_found",
+                confidence=1.0 if all_projects else 0.0,
+                heading_detected=detected_headings.get("projects") or ("Nested in Experience" if nested_projects else None),
+                item_count=len(all_projects),
                 extraction_method=proj_method,
             ),
             "experience": SectionMetadata(
-                status="extracted" if exp_sec and experience else ("fallback_used" if experience else "not_found"),
-                confidence=1.0 if exp_sec and experience else (0.75 if experience else 0.0),
-                heading_detected=detected_headings.get("experience"),
-                item_count=len(experience),
+                status="extracted" if (employment or internships) else "not_found",
+                confidence=1.0 if (employment or internships) else 0.0,
+                heading_detected=detected_headings.get("experience") or detected_headings.get("internships"),
+                item_count=len(employment) + len(internships),
                 extraction_method=exp_method,
             ),
             "education": SectionMetadata(
@@ -488,24 +534,43 @@ class ResumeExtractor:
                 item_count=len(achievements),
                 extraction_method="direct" if achievements else "none",
             ),
+            "languages": SectionMetadata(
+                status="extracted" if languages else "not_found",
+                confidence=1.0 if languages else 0.0,
+                heading_detected=detected_headings.get("languages"),
+                item_count=len(languages),
+                extraction_method="direct" if languages else "none",
+            ),
         }
 
-        return ParsedResumeData(
+        parsed_data = ParsedResumeData(
             candidate_name=name,
             contact_info=contact,
             career_objective=objective,
             professional_summary=summary,
             technical_skills=skills,
+            soft_skills=soft_skills,
             education=education,
             certifications=certifications,
             structured_certifications=[CertificationEntry(name=c, certification_name=c) for c in certifications],
-            projects=projects,
-            employment_history=experience,
+            projects=all_projects,
+            employment_history=employment,
             internships=internships,
             achievements=achievements,
+            languages=languages,
+            publications=publications,
             raw_sections=sections,
             extraction_metadata=metadata,
         )
+
+        # Multi-Point Verification Engine Audit
+        verification_report = ResumeVerificationEngine.verify(
+            raw_text=text,
+            parsed_resume=parsed_data,
+            raw_sections=sections,
+        )
+        parsed_data.verification_report = verification_report.model_dump()
+        return parsed_data
 
     @classmethod
     def _segment_sections(cls, text: str) -> Dict[str, str]:
@@ -781,49 +846,133 @@ class ResumeExtractor:
 
     @classmethod
     def _extract_education(cls, edu_section: str, full_text: str) -> List[EducationEntry]:
-        """Extracts education records preserving full degree and institution."""
+        """Extracts education records preserving degree, specialization, institution, year, and GPA/CGPA."""
         entries: List[EducationEntry] = []
         source = edu_section if edu_section else full_text
 
         year_pattern = re.compile(r"\b(19\d{2}|20\d{2})\b")
-        gpa_pattern = re.compile(r"(?i)\bGPA\s*[:=]?\s*([0-4]\.\d{1,2}|[5-9]\.\d{1,2}|10(?:\.0)?)\b")
+        cgpa_gpa_pattern = re.compile(
+            r"(?i)\b(?:C?GPA|grade|percentage|marks?)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?(?:\s*/\s*[0-9]+)?%?)\b"
+        )
 
-        # First infer institution from the entire section if possible
         section_institution = cls._infer_institution(source)
-
         lines = [line.strip() for line in source.split("\n") if line.strip()]
+        current_entry: Optional[Dict[str, Any]] = None
+
+        def save_current_edu():
+            nonlocal current_entry
+            if current_entry and current_entry.get("degree"):
+                raw_combined = " \n ".join(current_entry["raw_lines"])
+                entries.append(EducationEntry(
+                    degree=current_entry["degree"],
+                    field_of_study=current_entry.get("field_of_study"),
+                    specialization=current_entry.get("specialization"),
+                    institution=current_entry.get("institution") or section_institution,
+                    graduation_year=current_entry.get("graduation_year"),
+                    gpa=current_entry.get("gpa"),
+                    cgpa=current_entry.get("cgpa"),
+                    percentage=current_entry.get("percentage"),
+                    raw_text=raw_combined,
+                ))
+            current_entry = None
+
         for line in lines:
+            is_new_degree = False
+            deg_title = None
+
             for pattern in cls.DEGREE_PATTERNS:
-                match = pattern.search(line)
-                if match:
-                    degree_str = match.group(0).strip()
-                    # Capture full degree phrase if it continues with "of ..."
-                    full_deg_m = re.search(r"\b(Bachelor|Master|Doctor|Associate|B\.?E\.?|B\.?Tech|B\.?S\.?|M\.?S\.?|M\.?Tech)\s+of\s+[A-Za-z\s]+", line, re.IGNORECASE)
-                    if full_deg_m:
-                        degree_str = full_deg_m.group(0).strip()
-
-                    year_match = year_pattern.search(line)
-                    gpa_match = gpa_pattern.search(line)
-                    inst = cls._infer_institution(line) or section_institution
-
-                    entries.append(EducationEntry(
-                        degree=degree_str,
-                        institution=inst,
-                        graduation_year=year_match.group(0) if year_match else None,
-                        gpa=gpa_match.group(1) if gpa_match else None,
-                        raw_text=line,
-                    ))
+                m = pattern.search(line)
+                if m:
+                    is_new_degree = True
+                    deg_title = m.group(0).strip()
                     break
 
+            if is_new_degree and deg_title:
+                save_current_edu()
+
+                field_of_study = None
+                specialization = None
+
+                full_deg_m = re.search(
+                    r"\b(Bachelor|Master|Doctor|Associate|B\.?E\.?|B\.?Tech|B\.?S\.?|M\.?S\.?|M\.?Tech)\s+of\s+[A-Za-z\s]+",
+                    line,
+                    re.IGNORECASE,
+                )
+                if full_deg_m:
+                    deg_title = full_deg_m.group(0).strip()
+
+                for sep in ["—", "–", " - ", " in ", " in: "]:
+                    if sep in line:
+                        parts = line.split(sep, 1)
+                        field_of_study = parts[1].strip()
+                        specialization = parts[1].strip()
+                        break
+
+                current_entry = {
+                    "degree": deg_title,
+                    "field_of_study": field_of_study,
+                    "specialization": specialization,
+                    "institution": cls._infer_institution(line),
+                    "graduation_year": None,
+                    "gpa": None,
+                    "cgpa": None,
+                    "percentage": None,
+                    "raw_lines": [line],
+                }
+
+                cgpa_m = cgpa_gpa_pattern.search(line)
+                if cgpa_m:
+                    val = cgpa_m.group(1).strip()
+                    if "%" in val:
+                        current_entry["percentage"] = val
+                    else:
+                        current_entry["cgpa"] = val
+                        current_entry["gpa"] = val.split("/")[0].strip()
+
+                yr_m = year_pattern.search(line)
+                if yr_m:
+                    current_entry["graduation_year"] = yr_m.group(0)
+
+            elif current_entry:
+                current_entry["raw_lines"].append(line)
+
+                cgpa_m = cgpa_gpa_pattern.search(line)
+                if cgpa_m and not current_entry["cgpa"]:
+                    val = cgpa_m.group(1).strip()
+                    if "%" in val:
+                        current_entry["percentage"] = val
+                    else:
+                        current_entry["cgpa"] = val
+                        current_entry["gpa"] = val.split("/")[0].strip()
+
+                yr_matches = year_pattern.findall(line)
+                if yr_matches and not current_entry["graduation_year"]:
+                    current_entry["graduation_year"] = yr_matches[-1]
+
+                if not current_entry["institution"]:
+                    line_inst = cls._infer_institution(line)
+                    if line_inst:
+                        current_entry["institution"] = line_inst
+                    else:
+                        cleaned_line = cgpa_gpa_pattern.sub("", line)
+                        cleaned_line = year_pattern.sub("", cleaned_line).strip(" ·|,–—-")
+                        if len(cleaned_line) > 5 and not re.match(
+                            r"(?i)^(?:first|second|distinction|grade|cgpa|gpa|class|percentage|cbse|icse)\b",
+                            cleaned_line,
+                        ):
+                            current_entry["institution"] = cleaned_line
+
+        save_current_edu()
         return entries
 
     @classmethod
     def _infer_institution(cls, text: str) -> Optional[str]:
-        inst_pattern = re.compile(r"(?i)\b([A-Za-z\s,]+(?:University|College|Institute(?:\s+of\s+[A-Za-z\s]+)?|Polytechnic|Academy))\b")
+        inst_pattern = re.compile(
+            r"(?i)\b([A-Za-z\s,]+(?:University|College|Institute(?:\s+of\s+[A-Za-z\s]+)?|Polytechnic|Academy|Faculty(?:\s+of\s+[A-Za-z\s]+)?|School|Vidyalaya))\b"
+        )
         m = inst_pattern.search(text)
         if m:
             clean_inst = m.group(1).strip()
-            # Don't include trailing numbers or dates
             clean_inst = re.sub(r"[\d\n]+.*$", "", clean_inst).strip()
             if len(clean_inst) > 3:
                 return clean_inst
@@ -1182,6 +1331,146 @@ class ResumeExtractor:
         return []
 
     @classmethod
+    def _extract_experience_with_nested(
+        cls,
+        exp_section: str,
+        intern_section: str = "",
+        full_text: str = "",
+    ) -> Tuple[List[ExperienceEntry], List[ExperienceEntry], List[ProjectEntry]]:
+        """Extracts employment history, internships, and any nested projects."""
+        combined_exp_text = ""
+        if exp_section and intern_section:
+            combined_exp_text = exp_section + "\n\n" + intern_section
+        elif exp_section:
+            combined_exp_text = exp_section
+        elif intern_section:
+            combined_exp_text = intern_section
+
+        if not combined_exp_text:
+            return [], [], []
+
+        lines = [line.strip() for line in combined_exp_text.split("\n") if line.strip()]
+        all_entries: List[ExperienceEntry] = []
+        nested_projects: List[ProjectEntry] = []
+
+        current_title: Optional[str] = None
+        current_company: Optional[str] = None
+        current_start: Optional[str] = None
+        current_end: Optional[str] = None
+        current_resp: List[str] = []
+        current_nested_proj: Optional[Dict[str, Any]] = None
+
+        def commit_nested_proj():
+            nonlocal current_nested_proj
+            if current_nested_proj and current_nested_proj.get("title"):
+                b_list = current_nested_proj.get("bullets", [])
+                nested_projects.append(ProjectEntry(
+                    title=current_nested_proj["title"],
+                    description=" \n".join(b_list) if b_list else "",
+                    bullets=b_list,
+                    is_nested=True,
+                    parent_context=current_nested_proj.get("parent_context"),
+                ))
+            current_nested_proj = None
+
+        def save_current_entry():
+            nonlocal current_title, current_company, current_start, current_end, current_resp
+            commit_nested_proj()
+            if current_title:
+                all_entries.append(ExperienceEntry(
+                    job_title=current_title,
+                    company=current_company,
+                    start_date=current_start,
+                    end_date=current_end,
+                    responsibilities=current_resp,
+                ))
+            current_title = None
+            current_company = None
+            current_start = None
+            current_end = None
+            current_resp = []
+
+        for idx, line in enumerate(lines):
+            date_m = cls.DATE_RANGE_PATTERN.search(line)
+            is_bullet = bool(re.match(r"^[\s•\*\-\–\—\u2022]|^(?:\d+\.|\([a-z0-9]+\)|\[\d+\])\s+", line))
+
+            is_job_title_candidate = (
+                not is_bullet
+                and len(line) < 90
+                and not re.match(r"(?i)^project(?:\s+name)?\s*[:\-]", line)
+                and any(kw in line.lower() for kw in (
+                    "intern", "engineer", "analyst", "developer", "specialist",
+                    "consultant", "manager", "lead", "administrator", "officer",
+                    "technician", "director", "associate", "researcher", "assistant"
+                ))
+            )
+            next_is_date = (idx + 1 < len(lines) and bool(cls.DATE_RANGE_PATTERN.search(lines[idx + 1])))
+
+            if (is_job_title_candidate and (next_is_date or date_m or "—" in line or "-" in line or "|" in line or "," in line)) or (date_m and not is_bullet and not current_title):
+                save_current_entry()
+
+                title, company, start_date, end_date = line, None, None, None
+                if date_m:
+                    raw_dates = date_m.group(0)
+                    date_parts = re.split(r"\s*[-–—]\s*|\s+to\s+", raw_dates)
+                    start_date = date_parts[0].strip() if len(date_parts) > 0 else None
+                    end_date = date_parts[1].strip() if len(date_parts) > 1 else "Present"
+                    line_no_date = line.replace(raw_dates, "").strip(" |•-–—")
+                    if line_no_date:
+                        title = line_no_date
+
+                for sep in ["—", "–", "|", " at ", ","]:
+                    if sep in title:
+                        parts = [p.strip() for p in title.split(sep, 1)]
+                        if len(parts) == 2 and len(parts[0]) > 2 and len(parts[1]) > 1:
+                            title, company = parts[0], parts[1]
+                            break
+
+                current_title = title
+                current_company = company
+                current_start = start_date
+                current_end = end_date
+                continue
+
+            if date_m and current_title and not current_start and not is_bullet:
+                raw_dates = date_m.group(0)
+                date_parts = re.split(r"\s*[-–—]\s*|\s+to\s+", raw_dates)
+                current_start = date_parts[0].strip() if len(date_parts) > 0 else None
+                current_end = date_parts[1].strip() if len(date_parts) > 1 else "Present"
+                continue
+
+            proj_m = re.match(r"(?i)^project(?:\s+name)?\s*[:\-]\s*(.*)$", line)
+            if proj_m:
+                commit_nested_proj()
+                p_title = proj_m.group(1).strip()
+                comp_suffix = f" at {current_company}" if current_company else ""
+                parent_ctx = f"{current_title or 'Experience'}{comp_suffix}"
+                current_nested_proj = {
+                    "title": p_title,
+                    "parent_context": parent_ctx,
+                    "bullets": [],
+                }
+                continue
+
+            cleaned_bullet = re.sub(r"^[\s•\*\-\–\—\u2022]+", "", line).strip()
+            if cleaned_bullet:
+                if current_nested_proj:
+                    current_nested_proj["bullets"].append(cleaned_bullet)
+                if current_title:
+                    current_resp.append(cleaned_bullet)
+
+        save_current_entry()
+
+        internships = [e for e in all_entries if "intern" in e.job_title.lower()]
+        employment = [e for e in all_entries if "intern" not in e.job_title.lower()]
+
+        if intern_section and not internships:
+            intern_raw_entries = cls._extract_experience(intern_section)
+            internships.extend(intern_raw_entries)
+
+        return employment, internships, nested_projects
+
+    @classmethod
     def _extract_experience(cls, exp_section: str) -> List[ExperienceEntry]:
         """Extracts employment experiences with robust date, company, and title handling."""
         if not exp_section:
@@ -1280,6 +1569,47 @@ class ResumeExtractor:
 
         save_current()
         return entries
+
+    @classmethod
+    def _extract_languages(cls, lang_section: str, full_text: str) -> List[str]:
+        """Extracts candidate languages known."""
+        languages: List[str] = []
+        source = lang_section if lang_section else ""
+        if not source:
+            m = re.search(r"(?i)\b(?:languages(?:\s+known)?|linguistic\s+skills)\s*[:\-]\s*(.*)", full_text)
+            if m:
+                source = m.group(1).split("\n")[0]
+
+        if source:
+            tokens = re.split(r"[,|•\*\n;/]", source)
+            for token in tokens:
+                cleaned = re.sub(r"^[\s•\*\-\–\—\u2022]+|[.:\s]+$", "", token).strip()
+                cleaned = re.sub(r"\s*\([^)]*\)", "", cleaned).strip()
+                if cleaned and len(cleaned) <= 25 and not re.match(r"(?i)^(?:languages|known|fluent|native|proficient|basic)\b", cleaned):
+                    if cleaned not in languages:
+                        languages.append(cleaned)
+
+        return languages
+
+    @classmethod
+    def _extract_soft_skills(cls, skills_section: str, soft_skills_section: str = "") -> List[str]:
+        """Extracts soft / interpersonal skills."""
+        soft_skills: List[str] = []
+        source = soft_skills_section
+        if not source and skills_section:
+            m = re.search(r"(?i)\bsoft\s+skills?\s*[:\-]\s*(.*)", skills_section)
+            if m:
+                source = m.group(1).split("\n")[0]
+
+        if source:
+            tokens = re.split(r"[,|•\*\n;/]", source)
+            for token in tokens:
+                cleaned = re.sub(r"^[\s•\*\-\–\—\u2022]+|[.:\s]+$", "", token).strip()
+                if cleaned and len(cleaned) <= 35 and not re.match(r"(?i)^soft\s+skills?\b", cleaned):
+                    if cleaned not in soft_skills:
+                        soft_skills.append(cleaned)
+
+        return soft_skills
 
     @classmethod
     def _extract_list_items(cls, section_text: str) -> List[str]:

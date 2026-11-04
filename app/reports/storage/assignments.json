@@ -6297,7 +6297,7 @@
     "assigned_at": "2026-11-02T09:41:31.324580+00:00",
     "status": "completed",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "job_seq_auto_1": {
     "job_id": "job_seq_auto_1",
@@ -6327,7 +6327,7 @@
     "assigned_at": "2026-11-02T09:41:32.914510+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "concurrent_job_1": {
     "job_id": "concurrent_job_1",
@@ -6337,7 +6337,7 @@
     "assigned_at": "2026-11-02T09:41:32.953031+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "concurrent_job_2": {
     "job_id": "concurrent_job_2",
@@ -6347,7 +6347,7 @@
     "assigned_at": "2026-11-02T09:41:32.970143+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "concurrent_job_3": {
     "job_id": "concurrent_job_3",
@@ -6357,7 +6357,7 @@
     "assigned_at": "2026-11-02T09:41:32.986562+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "concurrent_job_4": {
     "job_id": "concurrent_job_4",
@@ -6367,7 +6367,7 @@
     "assigned_at": "2026-11-02T09:41:32.996561+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "concurrent_job_5": {
     "job_id": "concurrent_job_5",
@@ -6377,7 +6377,7 @@
     "assigned_at": "2026-11-02T09:41:33.008578+00:00",
     "status": "assigned",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "job_preservation_test": {
     "job_id": "job_preservation_test",
@@ -6387,7 +6387,7 @@
     "assigned_at": "2026-11-02T09:41:33.027094+00:00",
     "status": "completed",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "job_auto_ignore_test": {
     "job_id": "job_auto_ignore_test",
@@ -6397,7 +6397,7 @@
     "assigned_at": "2026-11-02T09:41:33.517729+00:00",
     "status": "completed",
     "output_format": "docx",
-    "retry_count": 14
+    "retry_count": 16
   },
   "job_b9d0caf27d": {
     "job_id": "job_b9d0caf27d",
@@ -8455,6 +8455,436 @@
     "template_name": "Executive Minimal",
     "role_name": "Ethical Hacker",
     "assigned_at": "2026-11-04T06:48:35.766244+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_4ca7d1f412": {
+    "job_id": "job_4ca7d1f412",
+    "template_id": "T06",
+    "template_name": "Fresher Starter",
+    "role_name": "Cybersecurity Engineer",
+    "assigned_at": "2026-11-04T08:18:50.515722+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_d8c4ed18d9": {
+    "job_id": "job_d8c4ed18d9",
+    "template_id": "T07",
+    "template_name": "SOC Analyst",
+    "role_name": "Cybersecurity Engineer",
+    "assigned_at": "2026-11-04T08:21:09.927817+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_978c38a773": {
+    "job_id": "job_978c38a773",
+    "template_id": "T08",
+    "template_name": "Ethical Hacker",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T09:35:18.248196+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_5126224892": {
+    "job_id": "job_5126224892",
+    "template_id": "T09",
+    "template_name": "Network Security",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T10:42:19.010920+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_a2a7853353": {
+    "job_id": "job_a2a7853353",
+    "template_id": "T10",
+    "template_name": "Cloud Security",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T10:43:19.446309+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_fd7907c749": {
+    "job_id": "job_fd7907c749",
+    "template_id": "T11",
+    "template_name": "Application Security",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T16:22:23.224751+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_6b6fbd7e57": {
+    "job_id": "job_6b6fbd7e57",
+    "template_id": "T12",
+    "template_name": "Digital Forensics",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:18:32.748950+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_b928d593b8": {
+    "job_id": "job_b928d593b8",
+    "template_id": "T13",
+    "template_name": "Incident Response",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:18:34.895825+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_3589eb7096": {
+    "job_id": "job_3589eb7096",
+    "template_id": "T14",
+    "template_name": "Vulnerability Analyst",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T17:18:35.824654+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_1078ef7e1b": {
+    "job_id": "job_1078ef7e1b",
+    "template_id": "T15",
+    "template_name": "Security Consultant",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:19:09.177095+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_3c2fe5698d": {
+    "job_id": "job_3c2fe5698d",
+    "template_id": "T16",
+    "template_name": "Academic Technical",
+    "role_name": "Application Security Analyst",
+    "assigned_at": "2026-11-04T17:19:20.947682+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_12552efc79": {
+    "job_id": "job_12552efc79",
+    "template_id": "T17",
+    "template_name": "Project Focused",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:19:21.981515+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_auto_1_b09844": {
+    "job_id": "job_seq_auto_1_b09844",
+    "template_id": "T18",
+    "template_name": "Skills First",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:19:23.191064+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_manual_t20_b09844": {
+    "job_id": "job_seq_manual_t20_b09844",
+    "template_id": "T20",
+    "template_name": "Experience First",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:19:23.816775+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_auto_2_b09844": {
+    "job_id": "job_seq_auto_2_b09844",
+    "template_id": "T19",
+    "template_name": "Certification Focused",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:19:24.386065+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_retry_test_5c360a": {
+    "job_id": "job_retry_test_5c360a",
+    "template_id": "T20",
+    "template_name": "Experience First",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:19:25.336704+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 1
+  },
+  "gen_973468ece000": {
+    "job_id": "gen_973468ece000",
+    "template_id": "T1",
+    "template_name": "T1",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:19:49.225401+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "gen_ce28c0b60889": {
+    "job_id": "gen_ce28c0b60889",
+    "template_id": "T3",
+    "template_name": "T3",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:19:49.247797+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "gen_892aa222e897": {
+    "job_id": "gen_892aa222e897",
+    "template_id": "T1",
+    "template_name": "T1",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:19:49.277035+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_0ecd5028f5": {
+    "job_id": "job_0ecd5028f5",
+    "template_id": "T21",
+    "template_name": "Modern Compact",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:20:05.235101+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_f07a343e77": {
+    "job_id": "job_f07a343e77",
+    "template_id": "T22",
+    "template_name": "Technical Research",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:20:07.228161+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_c07b61984e": {
+    "job_id": "job_c07b61984e",
+    "template_id": "T23",
+    "template_name": "Security Operations",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:20:09.430121+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_7005e69f51": {
+    "job_id": "job_7005e69f51",
+    "template_id": "T24",
+    "template_name": "Infrastructure Security",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:20:09.961929+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_b27a029a23": {
+    "job_id": "job_b27a029a23",
+    "template_id": "T25",
+    "template_name": "DevSecOps Professional",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:20:10.480176+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_2d34cfd952": {
+    "job_id": "job_2d34cfd952",
+    "template_id": "T26",
+    "template_name": "GRC Professional",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:24:36.887614+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_7ed2e782b1": {
+    "job_id": "job_7ed2e782b1",
+    "template_id": "T27",
+    "template_name": "Threat Intelligence",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:24:39.909083+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_95e673d803": {
+    "job_id": "job_95e673d803",
+    "template_id": "T28",
+    "template_name": "IAM Specialist",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T17:24:41.078466+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_d3d5c076d9": {
+    "job_id": "job_d3d5c076d9",
+    "template_id": "T29",
+    "template_name": "Security Engineer",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:25:13.479170+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_d0106bd390": {
+    "job_id": "job_d0106bd390",
+    "template_id": "T30",
+    "template_name": "Universal ATS Professional",
+    "role_name": "Application Security Analyst",
+    "assigned_at": "2026-11-04T17:25:22.413100+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_9eb3bcb074": {
+    "job_id": "job_9eb3bcb074",
+    "template_id": "T01",
+    "template_name": "Professional Classic",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:25:24.435127+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_auto_1_e60c97": {
+    "job_id": "job_seq_auto_1_e60c97",
+    "template_id": "T02",
+    "template_name": "Modern Professional",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:25:27.181241+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_manual_t20_e60c97": {
+    "job_id": "job_seq_manual_t20_e60c97",
+    "template_id": "T20",
+    "template_name": "Experience First",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:25:27.872786+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_seq_auto_2_e60c97": {
+    "job_id": "job_seq_auto_2_e60c97",
+    "template_id": "T03",
+    "template_name": "Technical Expert",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:25:28.483489+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_retry_test_8d1366": {
+    "job_id": "job_retry_test_8d1366",
+    "template_id": "T04",
+    "template_name": "Cybersecurity Specialist",
+    "role_name": "Ethical Hacker / Penetration Tester",
+    "assigned_at": "2026-11-04T17:25:29.293634+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 1
+  },
+  "gen_1784389134eb": {
+    "job_id": "gen_1784389134eb",
+    "template_id": "T1",
+    "template_name": "T1",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:26:30.093215+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "gen_a759d63c8700": {
+    "job_id": "gen_a759d63c8700",
+    "template_id": "T3",
+    "template_name": "T3",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:26:30.150134+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "gen_7afb656369e4": {
+    "job_id": "gen_7afb656369e4",
+    "template_id": "T1",
+    "template_name": "T1",
+    "role_name": null,
+    "assigned_at": "2026-11-04T17:26:30.205266+00:00",
+    "status": "assigned",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_f6f8b83bc3": {
+    "job_id": "job_f6f8b83bc3",
+    "template_id": "T05",
+    "template_name": "Executive Minimal",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:26:49.119606+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_d399fcd773": {
+    "job_id": "job_d399fcd773",
+    "template_id": "T06",
+    "template_name": "Fresher Starter",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:26:52.912077+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_acc779d789": {
+    "job_id": "job_acc779d789",
+    "template_id": "T07",
+    "template_name": "SOC Analyst",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:26:59.347234+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_a5e42893fd": {
+    "job_id": "job_a5e42893fd",
+    "template_id": "T08",
+    "template_name": "Ethical Hacker",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:27:01.086802+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_ba930c594a": {
+    "job_id": "job_ba930c594a",
+    "template_id": "T09",
+    "template_name": "Network Security",
+    "role_name": "Ethical Hacker",
+    "assigned_at": "2026-11-04T17:27:01.846881+00:00",
+    "status": "completed",
+    "output_format": "docx",
+    "retry_count": 0
+  },
+  "job_f76b74ba93": {
+    "job_id": "job_f76b74ba93",
+    "template_id": "T10",
+    "template_name": "Cloud Security",
+    "role_name": "SOC Analyst",
+    "assigned_at": "2026-11-04T17:30:50.745271+00:00",
     "status": "completed",
     "output_format": "docx",
     "retry_count": 0

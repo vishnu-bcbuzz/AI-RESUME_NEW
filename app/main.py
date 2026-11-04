@@ -489,6 +489,7 @@ async def analyze_resume_endpoint(
                 "injection_detected": parsed_doc["security_flag_injection_detected"],
             },
             "parsed_resume": resume_data.model_dump(),
+            "verification_report": resume_data.verification_report,
             "match_report": match_report.model_dump(),
             "score_result": score_result.model_dump(),
             "gap_analysis": gap_report.model_dump(),

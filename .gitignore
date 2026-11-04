@@ -34,3 +34,7 @@ test_out.docx
 
 # Generated personal documents
 uploads/
+
+# Large PDF reports
+FUTRSEC_Project_Report_With_Diagrams.pdf
+docs/FUTRSEC_AI_Resume_Engine_Technical_Report.pdf

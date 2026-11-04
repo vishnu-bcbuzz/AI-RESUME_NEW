@@ -296,6 +296,25 @@ export interface ResumeImprovementPlan {
   primary_project_plan?: any;
 }
 
+export interface SectionVerificationResult {
+  section_name: string;
+  status: 'extracted' | 'partially_extracted' | 'extraction_failed' | 'genuinely_absent' | string;
+  detected_in_raw_text: boolean;
+  heading_found?: string | null;
+  item_count: number;
+  confidence: number;
+  sample_snippet?: string | null;
+  validation_warnings: string[];
+}
+
+export interface CandidateVerificationReport {
+  overall_quality_score: number;
+  is_extraction_reliable: boolean;
+  sections: Record<string, SectionVerificationResult>;
+  critical_warnings: string[];
+  extraction_notes: string[];
+}
+
 export interface AnalysisResponse {
   analysis_id: string;
   filename: string;
@@ -306,6 +325,7 @@ export interface AnalysisResponse {
     injection_detected: boolean;
   };
   parsed_resume: Record<string, any>;
+  verification_report?: CandidateVerificationReport;
   match_report: MatchReport;
   score_result: ATSScoreResult;
   gap_analysis: GapAnalysisReport;

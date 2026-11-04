@@ -159,6 +159,55 @@ class ProjectTrackingService:
         return ranked
 
     @classmethod
+    def reject_recommendation(
+        cls, candidate_id: str, project_id: str, reason: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """Records a candidate's rejection of a recommended project."""
+        logger.info("Candidate %s rejected recommendation %s. Reason: %s", candidate_id, project_id, reason)
+        return {
+            "status": "rejected",
+            "candidate_id": candidate_id,
+            "project_id": project_id,
+            "reason": reason or "Declined by candidate",
+        }
+
+    @classmethod
+    def update_project_status(cls, candidate_project_id: str, new_status: str) -> Dict[str, Any]:
+        """Updates the status of an assigned candidate project."""
+        valid_statuses = {"Not Started", "In Progress", "Submitted", "Under Review", "Revision Required", "Completed"}
+        if new_status not in valid_statuses:
+            raise ValueError(f"Invalid project status '{new_status}'.")
+        with db_manager.get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    UPDATE public.candidate_projects
+                    SET status = %s,
+                        updated_at = NOW()
+                    WHERE id = %s
+                    RETURNING id, candidate_id, status;
+                    """,
+                    (new_status, candidate_project_id),
+                )
+                row = cur.fetchone()
+                if not row:
+                    raise ValueError(f"Project assignment '{candidate_project_id}' not found.")
+                conn.commit()
+                return dict(row)
+
+    @classmethod
+    def delete_candidate_project(cls, candidate_project_id: str) -> None:
+        """Deletes a candidate's project assignment and cascades to milestones and evidence."""
+        with db_manager.get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT id FROM public.candidate_projects WHERE id = %s;", (candidate_project_id,))
+                if not cur.fetchone():
+                    raise ValueError(f"Project assignment '{candidate_project_id}' not found.")
+                cur.execute("DELETE FROM public.candidate_projects WHERE id = %s;", (candidate_project_id,))
+            conn.commit()
+        logger.info("Deleted candidate project assignment %s.", candidate_project_id)
+
+    @classmethod
     def assign_project(cls, payload: ProjectAssignmentInput) -> Dict[str, Any]:
         """Assigns an accepted project recommendation to a candidate, creating milestones and tasks."""
         cand_id = payload.candidate_id.strip()
@@ -280,7 +329,7 @@ class ProjectTrackingService:
                         ) VALUES (
                             %s, %s, %s, %s, %s,
                             %s, %s, %s, %s,
-                            'In Progress' IF %s = 1 ELSE 'Not Started',
+                            CASE WHEN %s = 1 THEN 'In Progress' ELSE 'Not Started' END,
                             0, %s
                         );
                         """,
@@ -718,6 +767,7 @@ class ProjectTrackingService:
             "verification_id": history_id,
             "milestone_id": milestone_id,
             "candidate_project_id": candidate_project_id,
+            "status": new_milestone_status,
             "verdict": verdict,
             "milestone_status": new_milestone_status,
             "project_status": project_status,
